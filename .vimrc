@@ -67,3 +67,9 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 imap <C-j> <esc>
 noremap! <C-j> <esc>
 
+" 保存時のアクション
+" 空白のみの行の空白を削除
+autocmd BufWritePre * :%s/^ *$//g
+" 行末の空白を削除
+autocmd BufWritePre * :%s/ *$//g
+
