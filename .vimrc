@@ -68,8 +68,16 @@ imap <C-j> <esc>
 noremap! <C-j> <esc>
 
 " 保存時のアクション
-" 空白のみの行の空白を削除
-autocmd BufWritePre * :%s/^ *$//g
-" 行末の空白を削除
-autocmd BufWritePre * :%s/ *$//g
+function! s:remove_dust()
+    let cursor = getpos(".")
+    " 空白のみの行の空白を削除
+    %s/^\s\+$//ge
+    " 行末の空白を削除
+    %s/\s\+$//ge
+    " 保存時に tab を 4 スペースに変換する
+    %s/\t/    /ge
+    call setpos(".", cursor)
+    unlet cursor
+endfunction
+autocmd BufWritePre * call <SID>remove_dust()
 
