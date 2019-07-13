@@ -1,5 +1,5 @@
 [user]
-    name = skycase
+    name = sitogi
     email = takano162@gmail.com
 [core]
     autocrlf = input
@@ -10,5 +10,5 @@
     ci = commit
     st = status
     graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
-    list = log --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --date=short
+    logs = log --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --date=short
 
