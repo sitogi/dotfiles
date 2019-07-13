@@ -116,6 +116,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# add a blank line after each output
+function add_line {
+  if [[ -z "${PS1_NEWLINE_LOGIN}" ]]; then
+    PS1_NEWLINE_LOGIN=true
+  else
+    printf '\n'
+  fi
+}
+
+PROMPT_COMMAND='add_line'
 
 # My Prompt
 source ~/.git-prompt.sh
