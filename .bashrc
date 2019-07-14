@@ -129,5 +129,5 @@ PROMPT_COMMAND='add_line'
 
 # My Prompt
 source ~/.git-prompt.sh
-export PS1='\[\e[1m\]\u@\h \[\e[0m\][\w] \[\e[1;36m\] $(__git_ps1 "(%s)") \[\e[0m\] \n\$ '
+export PS1='\[\e[1;36m\]\u@\h \[\e[0m\][\w] \[\e[1;33m\] $(__git_ps1 "(%s)") \[\e[0m\] \n\$ '
 
