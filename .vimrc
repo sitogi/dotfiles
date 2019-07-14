@@ -81,3 +81,5 @@ function! s:remove_dust()
 endfunction
 autocmd BufWritePre * call <SID>remove_dust()
 
+" クリップボード共有
+set clipboard=unnamedplus
