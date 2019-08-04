@@ -64,8 +64,7 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " キーコンフィグ系
 " Esc キーは遠いので Ctrl + j に変更する
-imap <C-j> <esc>
-noremap! <C-j> <esc>
+inoremap <silent> jj <Esc>
 
 " 保存時のアクション
 function! s:remove_dust()
