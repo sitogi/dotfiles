@@ -132,6 +132,7 @@ source ~/.git-prompt.sh
 export PS1='\[\e[1;36m\]\u@\h \[\e[0m\][\w] \[\e[1;33m\] $(__git_ps1 "(%s)") \[\e[0m\] \n\$ '
 
 export PATH="$PATH:~/.config/composer/vendor/bin"
+export PATH="$PATH:/usr/lib/inkdrop/resources/app/ipm/bin"
 
 function homestead() {
     ( cd ~/Homestead && vagrant $* )
