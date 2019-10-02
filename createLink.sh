@@ -6,3 +6,7 @@ ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.ideavimrc ~/.ideavimrc
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 
+mkdir -p ~/.vim/rc
+ln -sf ~/dotfiles/.vim/rc/dein_lazy.toml ~/.vim/rc/dein_lazy.toml
+ln -sf ~/dotfiles/.vim/rc/dein.toml ~/.vim/rc/dein.toml
+

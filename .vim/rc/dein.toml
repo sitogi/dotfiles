@@ -1,0 +1,7 @@
+[[plugins]]
+repo    = 'upamune/esa.vim'
+depends = ['mattn/webapi-vim']
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+
