@@ -120,3 +120,5 @@ endif
 " esa.vim
 let g:esa_team = 'shitogi'
 
+syntax on
+
