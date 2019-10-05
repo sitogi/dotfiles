@@ -117,6 +117,3 @@ if dein#check_install()
 endif
 " End dein Scripts-------------------------
 
-" esa.vim
-let g:esa_team = 'shitogi'
-
