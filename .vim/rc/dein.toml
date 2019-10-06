@@ -10,7 +10,6 @@ let g:esa_team = 'shitogi'
 repo = 'mattn/webapi-vim'
 
 
-
 [[plugins]]
 repo = 'Townk/vim-autoclose'
 
@@ -58,4 +57,39 @@ repo = 'machakann/vim-highlightedyank'
 hook_add = '''
 let g:highlightedyank_highlight_duration = 150
 '''
+
+[[plugins]]
+repo = 'KazuakiM/neosnippet-snippets'
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-file.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-neosnippet.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'StanAngeloff/php.vim'
+on_ft = ['php']
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
 
