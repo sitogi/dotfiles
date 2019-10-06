@@ -1,30 +1,19 @@
 [[plugins]]
-repo    = 'upamune/esa.vim'
+repo  = 'upamune/esa.vim'
 depends = ['mattn/webapi-vim']
 hook_add = '''
 let g:esa_team = 'shitogi'
 '''
 
+
 [[plugins]]
 repo = 'mattn/webapi-vim'
 
-[[plugins]]
-repo = 'osyo-manga/vim-anzu'
-hook_add = '''
-nmap n <Plug>(anzu-n-with-echo)
-nmap N <Plug>(anzu-N-with-echo)
-nmap * <Plug>(anzu-star-with-echo)
-nmap # <Plug>(anzu-sharp-with-echo)
 
-" clear status
-nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
-
-" statusline
-set statusline=%{anzu#search_status()}
-'''
 
 [[plugins]]
 repo = 'Townk/vim-autoclose'
+
 
 [[plugins]]
 repo = 'alvan/vim-closetag'
@@ -32,8 +21,10 @@ hook_add = '''
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.blade.php'
 '''
 
+
 [[plugins]]
 repo = 'tpope/vim-surround'
+
 
 [[plugins]]
 repo = 'tpope/vim-repeat'
@@ -41,25 +32,26 @@ hook_add = '''
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 '''
 
+
 [[plugins]]
 repo = 'tpope/vim-commentary'
 
+
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
-
 " Vim を開く際にディレクトリを指定した場合に自動的にツリーを開く
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-
-
 " 最後に残されたウィンドウがツリーのみの場合に Vim を終了する
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 '''
+
 
 [[plugins]]
 repo = 'machakann/vim-highlightedyank'
