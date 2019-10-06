@@ -138,3 +138,9 @@ function homestead() {
     ( cd ~/Homestead && vagrant $* )
 }
 
+# Alias
+alias ide='tmux split-window -v -p 30 && tmux split-window -h -p 66 && tmux split-window -h -p 50 && tmux select-pane -U'
+alias chrome='google-chrome'
+alias ink='inkdrop'
+alias pas='php artisan serve --host 0.0.0.0'
+
