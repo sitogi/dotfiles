@@ -144,14 +144,14 @@ augroup MyAsyncomplete
     autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
     \   'name': 'neosnippet',
     \   'completor': function('asyncomplete#sources#neosnippet#completor'),
-    \   'whitelist': ['*'],
+    \   'whitelist': ['php'],
     \ }))
 
     autocmd User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
     \   'name': 'file',
     \   'completor': function('asyncomplete#sources#file#completor'),
     \   'priority': 10,
-    \   'whitelist': ['*'],
+    \   'whitelist': ['php'],
     \ }))
 
     autocmd User lsp_setup call lsp#register_server({
