@@ -208,3 +208,5 @@ let g:quickrun_config = {
 \    },
 \}
 
+syntax enable
+
