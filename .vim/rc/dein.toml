@@ -1,8 +1,8 @@
 [[plugins]]
-repo  = 'upamune/esa.vim'
+repo  = 'sitogi/esa.vim'
 depends = ['mattn/webapi-vim']
 hook_add = '''
-let g:esa_team = 'shitogi'
+let g:esa_team = 'sitogi'
 '''
 
 
