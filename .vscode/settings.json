@@ -74,7 +74,7 @@
     "workbench.startupEditor": "none",
     // エディターを開く場所を制御します。'left' または 'right' を選択すると現在アクティブになっているエディターの左または右にエディターを開きます。'first' または 'last' を選択すると現在アクティブになっているエディターとは別個にエディターを開きます。
     "workbench.editor.openPositioning": "last",
-    "workbench.activityBar.visible": false, // アクティビティバーでよけいなスペースを取られるのでfalse
+    "workbench.activityBar.visible": true, // アクティビティバーでよけいなスペースを取られるのでfalse
     "workbench.list.automaticKeyboardNavigation": false, // サイドバーのツリー検索でデフォルトの挙動をoffにする
     "explorer.openEditors.visible": 0, // [開いているエディター] ウィンドウに表示するエディターの数。
 
