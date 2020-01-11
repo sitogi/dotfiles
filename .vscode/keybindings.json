@@ -17,12 +17,12 @@
     },
     // 手前のエディターに移動
     {
-        "key": "ctrl+w ctrl+h",
+        "key": "ctrl+w h",
         "command": "workbench.action.previousEditor",
         "when": "editorFocus"
     },
     {
-        "key": "ctrl+w ctrl+l",
+        "key": "ctrl+w l",
         "command": "workbench.action.nextEditor",
         "when": "editorFocus && vim.mode == 'Normal'"
     },
@@ -30,21 +30,21 @@
     //----------------------------------------------------------
     // エディターにフォーカスしている時の設定(editor<->sidebarへの移動)
     //----------------------------------------------------------
-    // サイドバーへの移動 (ctrl+hをhにしてctrlを話すだけで切り替わる)
+    // サイドバーへの移動
     {
-        "key": "ctrl+w h",
+        "key": "ctrl+w ctrl+h",
         "command": "workbench.action.focusSideBar",
         "when": "editorFocus"
     },
-    // サイドバーからの移動 (ctrl+hをhにしてctrlを話すだけで切り替わる)
+    // サイドバーからの移動
     {
         "key": "ctrl+w ctrl+l",
         "command": "workbench.action.focusFirstEditorGroup",
         "when": "!editorFocus"
     },
-    // サイドバーからの移動 (ctrl+hをhにしてctrlを話すだけで切り替わる)
+    // サイドバーからの移動
     {
-        "key": "ctrl+w ctrl+l",
+        "key": "ctrl+w ctrl+h",
         "command": "workbench.action.navigateEditorGroups",
         "when": "!editorFocus"
     },
@@ -71,16 +71,6 @@
     },
 
     //----------------------------------------------------------
-    // カーソル移動(editor(ui移動はなし))
-    //----------------------------------------------------------
-    //入力モードでカーソルをみぎにずらす
-    {
-        "key": "ctrl+l",
-        "command": "cursorRight",
-        "when": "editorTextFocus && !editorReadOnly"
-    },
-
-    //----------------------------------------------------------
     // サジェストの選択(ui移動はなし)
     //----------------------------------------------------------
     // サジェストの選択
@@ -96,7 +86,7 @@
     },
     // 候補のフォーカスを上へ移動
     {
-        "key": "ctrl+k",
+        "key": "ctrl+p",
         "command": "selectPrevSuggestion",
         "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
     },
@@ -151,20 +141,6 @@
         "key": "ctrl+[",
         "command": "keybindings.editor.clearSearchResults",
         "when": "inKeybindings && inKeybindingsSearch"
-    },
-
-    //----------------------------------------------------------
-    // workbenchのクイックオープンの挙動(ui移動はなし)
-    //----------------------------------------------------------
-    {
-        "key": "ctrl+j",
-        "command": "workbench.action.closeQuickOpen",
-        "when": "inQuickOpen"
-    },
-    {
-        "key": "ctrl+j",
-        "command": "workbench.action.closeQuickOpen",
-        "when": "inQuickOpen"
     },
 
     //----------------------------------------------------------
@@ -270,7 +246,7 @@
         "key": "[IntlYen] t",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminalFocus && vim.mode != 'SearchInProgressMode' && vim.mode != 'Insert'"
-    },
+    }
 
 ]
 
