@@ -135,5 +135,7 @@
     "vim.ignorecase": true, // ignore case in search patterns.
     "vim.incsearch": true, // show where a / search matches as you type it.
     "vim.sneak": true,
-    "editor.fontFamily": "'Droid Sans Mono', 'Ricty Diminished', monospace, 'Droid Sans Fallback'", // enable the sneak plugin for vim.
+    "editor.fontFamily": "'Ricty Diminished', 'Droid Sans Mono', monospace, 'Droid Sans Fallback'",
+    "prettier.endOfLine": "lf",
+    "prettier.tabWidth": 4, // enable the sneak plugin for vim.
 }

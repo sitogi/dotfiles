@@ -1,13 +1,12 @@
 {
   "recommendations": [
-    "CoenraadS.bracket-pair-colorizer-2",
+    "coenraads.bracket-pair-colorizer-2",
     "dbaeumer.vscode-eslint",
     "oderwat.indent-rainbow",
-    "MS-vsliveshare.vsliveshare",
+    "ms-vsliveshare.vsliveshare",
     "yzhang.markdown-all-in-one",
     "esbenp.prettier-vscode",
-    "esbenp.prettier-vscode",
-    "thibaudcolas.stylelint",
+    "hex-ci.stylelint-plus",
     "vscodevim.vim"
   ]
 }
