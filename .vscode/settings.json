@@ -11,8 +11,7 @@
     "editor.minimap.enabled": false, // ミニマップはいらない
     "editor.insertSpaces": true, // tab キーを押すとスペースが挿入されます。
     "editor.tabSize": 4, // tabをデフォルトで 4 スペースにする
-    "editor.renderWhitespace": "boundary", // エディターで空白文字を表示する方法を制御します。'none'、'boundary' および 'all' が使用可能です。'boundary' オプションでは、単語間の単一スペースは表示されません。
-    "editor.formatOnSave": false, // 時間のかかるフォーマットだとバグが出るのでfalse
+    "editor.renderWhitespace": "boundary", // 時間のかかるフォーマットだとバグが出るのでfalse
     "breadcrumbs.enabled": true, //エディターで開くパンくずの設定
 
     //----------------------------------------------------------
@@ -137,5 +136,6 @@
     "vim.sneak": true,
     "editor.fontFamily": "'Ricty Diminished', 'Droid Sans Mono', monospace, 'Droid Sans Fallback'",
     "prettier.endOfLine": "lf",
-    "prettier.tabWidth": 4, // enable the sneak plugin for vim.
+    "prettier.tabWidth": 4,
+    "editor.formatOnSave": true, // enable the sneak plugin for vim.
 }
