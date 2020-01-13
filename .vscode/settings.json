@@ -137,5 +137,6 @@
     "editor.fontFamily": "'Ricty Diminished', 'Droid Sans Mono', monospace, 'Droid Sans Fallback'",
     "prettier.endOfLine": "lf",
     "editor.formatOnSave": true,
-    "prettier.printWidth": 120
+    "prettier.printWidth": 120,
+    "workbench.iconTheme": "vscode-icons"
 }
