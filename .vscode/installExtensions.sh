@@ -8,6 +8,7 @@ code --install-extension ms-vsliveshare.vsliveshare
 code --install-extension yzhang.markdown-all-in-one
 code --install-extension esbenp.prettier-vscode
 code --install-extension hex-ci.stylelint-plus
+code --install-extension ipatalas.vscode-postfix-ts
 code --install-extension vscodevim.vim
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension visualstudioexptteam.vscodeintellicode

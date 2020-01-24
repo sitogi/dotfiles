@@ -134,9 +134,12 @@
     "vim.ignorecase": true, // ignore case in search patterns.
     "vim.incsearch": true, // show where a / search matches as you type it.
     "vim.sneak": true,
-    "editor.fontFamily": "'Ricty Diminished', 'Droid Sans Mono', monospace, 'Droid Sans Fallback'",
+    "editor.fontFamily": "'Ubuntu Mono', 'Ricty Diminished', 'Droid Sans Mono', monospace, 'Droid Sans Fallback'",
     "prettier.endOfLine": "lf",
-    "editor.formatOnSave": true,
     "prettier.printWidth": 120,
-    "workbench.iconTheme": "vscode-icons"
+    "workbench.iconTheme": "vscode-icons",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.formatOnSave": true,
+    "explorer.confirmDragAndDrop": false
 }
