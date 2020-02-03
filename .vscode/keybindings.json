@@ -147,11 +147,6 @@
     // サイドバーでのファイル名編集(ui移動はなし)
     //----------------------------------------------------------
     {
-        "key": "ctrl+r",
-        "command": "renameFile",
-        "when": "explorerViewletVisible && filesExplorerFocus"
-    },
-    {
         "key": "Enter",
         "command": "explorer.openToSide",
         "when": "explorerViewletVisible && filesExplorerFocus"
@@ -250,6 +245,24 @@
     {
         "key": "ctrl+shift+q",
         "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-editor.action.startFindReplaceAction"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.quickOpenNavigateNextInRecentFilesPicker",
+        "when": "inQuickOpen && inRecentFilesPicker"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.openRecent"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.reloadWindow",
+        "when": "isDevelopment"
     }
 
 ]
