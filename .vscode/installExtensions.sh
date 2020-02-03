@@ -1,4 +1,4 @@
-code --install-extension coenraads.bracket-pair-colorizer-2
+code --install-extension coenraads.bracket-pair-colorizer
 code --install-extension msjsdiag.debugger-for-chrome
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension mhutchie.git-graph
@@ -12,4 +12,5 @@ code --install-extension ipatalas.vscode-postfix-ts
 code --install-extension vscodevim.vim
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension visualstudioexptteam.vscodeintellicode
+code --install-extension streetsidesoftware.code-spell-checker
 
