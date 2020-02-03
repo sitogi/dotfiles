@@ -246,6 +246,10 @@
         "key": "[IntlYen] t",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminalFocus && vim.mode != 'SearchInProgressMode' && vim.mode != 'Insert'"
+    },
+    {
+        "key": "ctrl+shift+q",
+        "command": "workbench.action.toggleMaximizedPanel"
     }
 
 ]
