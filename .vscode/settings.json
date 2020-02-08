@@ -143,11 +143,22 @@
     "editor.formatOnSave": true,
     "explorer.confirmDragAndDrop": false,
     "cSpell.userWords": [
+        "DEVTOOLS",
+        "Interop",
+        "Pushable",
         "browserslist",
+        "buildcache",
         "camelcase",
+        "esnext",
+        "gravatar",
+        "orgs",
         "precommit",
+        "repos",
+        "spdx",
         "sprintf",
         "stylelint",
+        "tsbuildinfo",
         "zaitakun"
-    ]
+    ],
+    "files.autoSave": "afterDelay"
 }
