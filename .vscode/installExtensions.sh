@@ -15,4 +15,5 @@ code --install-extension visualstudioexptteam.vscodeintellicode
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension mechatroner.rainbow-csv
 code --install-extension jpoissonnier.vscode-styled-components
+code --install-extension sitogi.component-jumper
 

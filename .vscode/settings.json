@@ -143,6 +143,8 @@
     "editor.formatOnSave": true,
     "explorer.confirmDragAndDrop": false,
     "cSpell.userWords": [
+        "Coord",
+        "Crtl",
         "DEVTOOLS",
         "Interop",
         "Pushable",
@@ -154,11 +156,16 @@
         "orgs",
         "precommit",
         "repos",
+        "sidemenu",
+        "sitogi",
         "spdx",
         "sprintf",
+        "stackable",
         "stylelint",
         "tsbuildinfo",
         "zaitakun"
     ],
-    "files.autoSave": "afterDelay"
+    "files.autoSave": "off",
+    "explorer.confirmDelete": false,
+    "typescript.updateImportsOnFileMove.enabled": "always"
 }
