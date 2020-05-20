@@ -144,3 +144,10 @@ alias chrome='google-chrome'
 alias ink='inkdrop'
 alias pas='php artisan serve --host 0.0.0.0'
 
+# anyenv
+if [ -d $HOME/.anyenv ]
+then
+    export PATH="$HOME/.anyenv/bin:$PATH"
+    eval "$(anyenv init -)"
+fi
+
