@@ -36,18 +36,6 @@ set wildmode=list:longest
 nnoremap j gj
 nnoremap k gk
 
-
-" Tab系
-" 不可視文字を可視化
-set list listchars=tab:>-
-" Tab文字を半角スペースにする
-set expandtab
-" 行頭以外のTab文字の表示幅（スペースいくつ分）
-set tabstop=4
-" 行頭でのTab文字の表示幅 (SmartIndent での幅)
-set shiftwidth=4
-
-
 " 検索系
 " 検索文字列が小文字の場合は大文字小文字を区別なく検索する
 set ignorecase
@@ -65,24 +53,5 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 " キーコンフィグ系
 inoremap <silent> jj <esc>
 
-" 保存時のアクション
-function! s:remove_dust()
-    let cursor = getpos(".")
-    " 空白のみの行の空白を削除
-    %s/^\s\+$//ge
-    " 行末の空白を削除
-    %s/\s\+$//ge
-    " 保存時に tab を 4 スペースに変換する
-    %s/\t/    /ge
-    call setpos(".", cursor)
-    unlet cursor
-endfunction
-autocmd BufWritePre * call <SID>remove_dust()
-
 " クリップボード共有
 set clipboard=unnamedplus
-
-" tmux からの Vim を起動した際の色表示を正常にする
-set background=dark
-" set t_Co=256
-
