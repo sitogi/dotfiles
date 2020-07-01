@@ -119,4 +119,3 @@ endif
 " End dein Scripts-------------------------
 
 syntax enable
-
