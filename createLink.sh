@@ -14,6 +14,8 @@ mkdir -p ~/.vim/rc
 ln -sf ~/dotfiles/.vim/rc/dein_lazy.toml ~/.vim/rc/dein_lazy.toml
 ln -sf ~/dotfiles/.vim/rc/dein.toml ~/.vim/rc/dein.toml
 
+ln -sf ~/dotfiles/.vim/templates ~/.vim/templates
+
 # VSCode Settings
 mkdir -p ~/.config/Code/User
 ln -sf ~/dotfiles/.vscode/settings.json ~/.config/Code/User/settings.json
