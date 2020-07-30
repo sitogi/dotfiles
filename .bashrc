@@ -146,5 +146,5 @@ then
     eval "$(anyenv init -)"
 fi
 
-export LESS="-iMNRS"
+# export LESS="-iMNRS"
 
