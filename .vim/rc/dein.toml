@@ -62,3 +62,9 @@ hook_add = '''
 let g:sonictemplate_vim_template_dir = ['~/.vim/templates']
 '''
 
+[[plugins]]
+repo = 'reireias/vim-cheatsheet'
+hook_add = '''
+let g:cheatsheet#cheat_file = '~/.vim/templates/vimCheatSheet.md'
+'''
+
