@@ -47,3 +47,11 @@ inoremap <silent> jj <esc>
 
 " クリップボード共有
 set clipboard=unnamedplus
+
+" IntelliJ Actions
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap <C-i> :action Forward<CR>
+nnoremap <C-o> :action Back<CR>
+
