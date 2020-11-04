@@ -22,3 +22,8 @@ ln -sf ~/dotfiles/.vscode/settings.json ~/.config/Code/User/settings.json
 ln -sf ~/dotfiles/.vscode/keybindings.json ~/.config/Code/User/keybindings.json
 bash ./.vscode/installExtensions.sh
 
+# fish
+mkdir -p ~/.config/Code/User
+ln -sf ~/dotfiles/.config/config.fish ~/.config/fish/config.fish
+ln -sf ~/dotfiles/.config/functions/fish_user_key_bindings.fish ~/.config/fish/functions/fish_user_key_bindings.fish
+
