@@ -24,6 +24,6 @@ bash ./.vscode/installExtensions.sh
 
 # fish
 mkdir -p ~/.config/Code/User
-ln -sf ~/dotfiles/.config/config.fish ~/.config/fish/config.fish
-ln -sf ~/dotfiles/.config/functions/fish_user_key_bindings.fish ~/.config/fish/functions/fish_user_key_bindings.fish
+ln -sf ~/dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
+ln -sf ~/dotfiles/.config/fish/functions/fish_user_key_bindings.fish ~/.config/fish/functions/fish_user_key_bindings.fish
 
