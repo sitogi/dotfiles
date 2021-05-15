@@ -119,3 +119,6 @@ endif
 " End dein Scripts-------------------------
 
 syntax enable
+
+nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
+
