@@ -11,4 +11,5 @@
     graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
     logs = log --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --date=short
     pfwl = push --force-with-lease
+    rh = stash -u
 
