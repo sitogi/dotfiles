@@ -82,7 +82,7 @@ endfunction
 autocmd BufWritePre * call <SID>remove_dust()
 
 " クリップボード共有
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " tmux からの Vim を起動した際の色表示を正常にする
 set background=dark
