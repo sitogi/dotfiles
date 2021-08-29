@@ -23,6 +23,7 @@ ln -sf ~/dotfiles/.config/nvim/rc/dein.toml ~/.config/nvim/rc/dein.toml
 
 # VSCode Settings
 mkdir -p ~/.config/Code/User
-ln -sf ~/dotfiles/.vscode/settings.json ~/.config/Code/User/settings.json
-ln -sf ~/dotfiles/.vscode/keybindings.json ~/.config/Code/User/keybindings.json
+ln -sf ~/dotfiles/.vscode/settings.json "/Users/masayuki/Library/Application Support/Code/User/settings.json"
+ln -sf ~/dotfiles/.vscode/keybindings.json "/Users/masayuki/Library/Application Support/Code/User/keybindings.json"
+sh ~/dotfiles/.vscode/installExtensions.sh
 

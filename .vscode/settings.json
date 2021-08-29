@@ -116,24 +116,7 @@
     "php-cs-fixer.onsave": true, // execute php cs fixer on save
     "php.validate.run": "onSave", // リンターを保存時に実行するか、入力時に実行するか。
 
-    //----------------------------------------------------------
-    // vscode vimの設定
-    //----------------------------------------------------------
-    // Esc を jj に変更
-    "vim.insertModeKeyBindings": [
-        {
-            "before": ["j","j"],
-            "after": ["<Esc>"]
-        }
-    ],
-    "vim.useSystemClipboard": true, // systemのclipboardを使用します
-    "vim.hlsearch": true, // hlsearchは必要だと思う
-    "vim.easymotion": true, // 検索をするときに見やすいモッサりすることなければこのまま
-    "vim.visualstar": true, // wordを* or + で検索するでしょ?
-    "vim.useCtrlKeys": true,
-    "vim.ignorecase": true, // ignore case in search patterns.
-    "vim.incsearch": true, // show where a / search matches as you type it.
-    "vim.sneak": true,
+    // その他
     "editor.fontFamily": "'Ubuntu Mono', 'Ricty Diminished', 'Droid Sans Mono', monospace, 'Droid Sans Fallback'",
     "prettier.endOfLine": "lf",
     "prettier.printWidth": 120,
@@ -146,6 +129,7 @@
         "Coord",
         "Crtl",
         "DEVTOOLS",
+        "Deno",
         "Interop",
         "NFCB",
         "Pixelization",
@@ -188,5 +172,8 @@
     "files.autoSave": "off",
     "explorer.confirmDelete": false,
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "javascript.updateImportsOnFileMove.enabled": "always"
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+    "vscode-neovim.neovimInitVimPaths.darwin": "/Users/masayuki/.config/nvim/init.vim"
 }
+
