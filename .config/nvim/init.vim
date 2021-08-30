@@ -36,8 +36,6 @@ set wildmode=list:longest
 " 折り返し時に表示行単位での移動できるようにする
 nnoremap j gj
 nnoremap k gk
-
-
 " Tab系
 " 不可視文字を可視化
 set list listchars=tab:>-
@@ -121,4 +119,13 @@ endif
 syntax enable
 
 nnoremap O :<C-u>call append(expand('.'), '')<Cr>j
+
+" For nvim-treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+  }
+}
+EOF
 

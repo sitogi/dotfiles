@@ -176,4 +176,3 @@
     "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
     "vscode-neovim.neovimInitVimPaths.darwin": "/Users/masayuki/.config/nvim/init.vim"
 }
-
