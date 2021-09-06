@@ -1,4 +1,3 @@
-code --install-extension coenraads.bracket-pair-colorizer
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension oderwat.indent-rainbow
 code --install-extension k--kato.intellij-idea-keybindings
