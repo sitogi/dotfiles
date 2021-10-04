@@ -19,7 +19,7 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'preservim/nerdtree'
 hook_add = '''
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <silent><C-n> :NERDTreeToggle<CR>
 " Vim を開く際にディレクトリを指定した場合に自動的にツリーを開く
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
@@ -68,4 +68,7 @@ call firenvim#install(0)
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 merged = 0
+
+[[plugins]]
+repo = 'simeji/winresizer'
 
