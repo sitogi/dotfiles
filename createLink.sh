@@ -28,3 +28,7 @@ ln -sf ~/dotfiles/.vscode/settings.json "/Users/masayuki/Library/Application Sup
 ln -sf ~/dotfiles/.vscode/keybindings.json "/Users/masayuki/Library/Application Support/Code/User/keybindings.json"
 sh ~/dotfiles/.vscode/installExtensions.sh
 
+# Scripts
+mkdir -p ~/.scripts
+ln -sf ~/dotfiles/.scripts/ide.sh ~/.scripts/ide.sh
+

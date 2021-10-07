@@ -57,6 +57,7 @@ zplug load
 
 # aliases
 alias vim='nvim'
+alias ide='~/.scripts/ide.sh'
 
 # bookmarks in zsh (https://threkk.medium.com/how-to-use-bookmarks-in-bash-zsh-6b8074e40774)
 if [ -d "$HOME/.bookmarks" ]; then
