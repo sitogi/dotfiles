@@ -55,3 +55,8 @@ nnoremap gi :action GotoImplementation<CR>
 nnoremap <C-i> :action Forward<CR>
 nnoremap <C-o> :action Back<CR>
 
+set surround
+
+set easymotion
+nmap s <Plug>(easymotion-s2)
+
