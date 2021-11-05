@@ -74,6 +74,11 @@ repo = 'simeji/winresizer'
 
 [[plugins]]
 repo = 'ap/vim-buftabline'
+hook_add = '''
+set hidden
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
+'''
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
