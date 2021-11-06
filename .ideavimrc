@@ -55,8 +55,10 @@ nnoremap gi :action GotoImplementation<CR>
 nnoremap <C-i> :action Forward<CR>
 nnoremap <C-o> :action Back<CR>
 
+" ideavim
 set surround
-
 set easymotion
 nmap s <Plug>(easymotion-s2)
+set multiple-cursors
+map <C-k> <A-n>
 
