@@ -1,4 +1,5 @@
-" setting
+" Leader キーを , に変更
+let mapleader = ","
 "文字コードをUFT-8に設定
 set fenc=utf-8
 " 編集中のファイルが変更されたら自動で読み直す

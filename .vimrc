@@ -1,4 +1,5 @@
-" setting
+" Leader キーを , に変更
+let mapleader = ","
 "文字コードをUFT-8に設定
 set fenc=utf-8
 set encoding=utf-8
