@@ -8,6 +8,12 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.blade.php,*.tsx,*.jsx'
 '''
 
 [[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
+
+[[plugins]]
 repo = 'machakann/vim-sandwich'
 
 [[plugins]]
