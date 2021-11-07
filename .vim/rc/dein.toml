@@ -84,3 +84,11 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_migemo = 1
 '''
 
+[[plugins]]
+repo = 'mg979/vim-visual-multi'
+hook_add = '''
+let g:VM_maps = {}
+let g:VM_maps['Find Under']         = '<C-k>'           " replace C-n
+let g:VM_maps['Find Subword Under'] = '<C-k>'           " replace visual C-n
+'''
+
