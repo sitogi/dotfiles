@@ -1,3 +1,5 @@
+" 英語化
+let $LANG='en_US.UTF-8'
 " Leader キーを , に変更
 let mapleader = ","
 "文字コードをUFT-8に設定
