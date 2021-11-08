@@ -91,6 +91,15 @@ repo = 'kana/vim-operator-user'
 [[plugins]]
 repo = 'kana/vim-operator-replace'
 hook_add = '''
-nmap _ <Plug>(operator-replace)
+nmap R <Plug>(operator-replace)
+'''
+
+[[plugins]]
+repo = 'junegunn/fzf'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+hook_add = '''
+set rtp+=~/.config/nvim/.cache/dein/repos/github.com/junegunn/fzf
 '''
 

@@ -111,3 +111,12 @@ hook_add = '''
 nmap R <Plug>(operator-replace)
 '''
 
+[[plugins]]
+repo = 'junegunn/fzf'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+hook_add = '''
+set rtp+=~/.config/nvim/.cache/dein/repos/github.com/junegunn/fzf
+'''
+
