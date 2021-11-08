@@ -65,3 +65,6 @@ if [ -d "$HOME/.bookmarks" ]; then
     alias goto="cd -P"
 fi
 
+# vimdiff を neovim で起動する
+alias vimdiff='nvim -d '
+
