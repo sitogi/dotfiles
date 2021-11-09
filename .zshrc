@@ -68,3 +68,7 @@ fi
 # vimdiff を neovim で起動する
 alias vimdiff='nvim -d '
 
+# fzf
+export FZF_DEFAULT_OPTS='--height 60% --reverse --border'
+alias fp='fzf --preview "bat  --color=always --style=header,grid --line-range :100 {}"'
+

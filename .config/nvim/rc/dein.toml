@@ -116,7 +116,20 @@ repo = 'junegunn/fzf'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
+on_cmd = [
+    'Files',
+    'ProjectFiles',
+    'Buffers',
+    'BLines',
+    'History',
+    'Tags',
+    'BTags',
+    'GFiles',
+    'Ag',
+]
 hook_add = '''
 set rtp+=~/.config/nvim/.cache/dein/repos/github.com/junegunn/fzf
+nnoremap <silent> <Leader>fg :GFiles<CR>
+nnoremap <silent> <Leader>fr :RG<CR>
 '''
 
