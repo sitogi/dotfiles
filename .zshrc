@@ -69,6 +69,6 @@ fi
 alias vimdiff='nvim -d '
 
 # fzf
-export FZF_DEFAULT_OPTS='--height 60% --reverse --border'
-alias fp='fzf --preview "bat  --color=always --style=header,grid --line-range :100 {}"'
+export FZF_DEFAULT_COMMAND='find . -type d -name node_modules -prune -o -name .git -prune -o -name build -prune -o -type f -print'
+export FZF_DEFAULT_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}" --height 60% --reverse --border'
 
