@@ -15,6 +15,8 @@ set autoread
 set hidden
 " 入力中のコマンドをステータスに表示する
 set showcmd
+" 最終行の空行を表示する
+set noendofline
 
 
 " 見た目系
