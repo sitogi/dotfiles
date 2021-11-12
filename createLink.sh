@@ -9,6 +9,8 @@ ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.ideavimrc ~/.ideavimrc
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
+ln -sf ~/dotfiles/.fzf.bash ~/.fzf.bash
+ln -sf ~/dotfiles/.fzf.zsh ~/.fzf.zsh
 
 # Vim plugin Settings
 mkdir -p ~/.vim/rc

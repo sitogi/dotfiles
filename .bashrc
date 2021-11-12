@@ -148,3 +148,5 @@ fi
 
 # export LESS="-iMNRS"
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
