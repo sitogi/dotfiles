@@ -52,6 +52,9 @@ HISTSIZE=10000
 # HISTFILE で指定したファイルに保存される履歴の件数
 SAVEHIST=10000
 
+# 各タブなどで history の共有化
+setopt share_history
+
 # Then, source plugins and add commands to $PATH
 zplug load
 
