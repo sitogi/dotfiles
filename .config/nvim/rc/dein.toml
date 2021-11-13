@@ -76,6 +76,13 @@ repo = 'nvim-treesitter/nvim-treesitter'
 merged = 0
 
 [[plugins]]
+repo = 'kyazdani42/blue-moon'
+hook_add = '''
+set termguicolors
+colorscheme blue-moon
+'''
+
+[[plugins]]
 repo = 'simeji/winresizer'
 
 [[plugins]]
