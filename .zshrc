@@ -63,6 +63,7 @@ alias vim='nvim'
 alias vimdiff='nvim -d '
 alias ide='~/.scripts/ide.sh'
 alias diff='delta'
+alias ls='exa'
 
 # fzf
 # export FZF_DEFAULT_COMMAND='find . -type d -name node_modules -prune -o -name .git -prune -o -name build -prune -o -type f -print'
