@@ -60,16 +60,9 @@ zplug load
 
 # aliases
 alias vim='nvim'
-alias ide='~/.scripts/ide.sh'
-
-# bookmarks in zsh (https://threkk.medium.com/how-to-use-bookmarks-in-bash-zsh-6b8074e40774)
-if [ -d "$HOME/.bookmarks" ]; then
-    export CDPATH=".:$HOME/.bookmarks:/"
-    alias goto="cd -P"
-fi
-
-# vimdiff を neovim で起動する
 alias vimdiff='nvim -d '
+alias ide='~/.scripts/ide.sh'
+alias diff='delta'
 
 # fzf
 # export FZF_DEFAULT_COMMAND='find . -type d -name node_modules -prune -o -name .git -prune -o -name build -prune -o -type f -print'
