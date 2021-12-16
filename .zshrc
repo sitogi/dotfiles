@@ -70,5 +70,6 @@ alias ls='exa'
 export FZF_DEFAULT_COMMAND='fd -H -E .git'
 export FZF_DEFAULT_OPTS='--height 60% --reverse --border --preview "bat --color=always --style=header,grid --line-range :100 {}"'
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# これを入れておかないと zvm で fzf のキーバインディングを上書きしてしまう
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
 
