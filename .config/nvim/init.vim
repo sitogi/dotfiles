@@ -134,3 +134,9 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+" fzf key maps
+nnoremap [Fzf] <Nop>
+nnoremap <Leader>f :<C-u>Files<CR>
+nnoremap <Leader>g :<C-u>GFiles<CR>
+nnoremap <Leader>b :<C-u>Buffers<CR>
+
