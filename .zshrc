@@ -64,6 +64,7 @@ alias vimdiff='nvim -d '
 alias ide='~/.scripts/ide.sh'
 alias diff='delta'
 alias ls='exa'
+alias vf='vim $(fzf)'
 
 export LESS="-iNMRS"
 
