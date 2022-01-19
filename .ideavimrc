@@ -62,4 +62,6 @@ set easymotion
 nmap s <Plug>(easymotion-s2)
 set multiple-cursors
 map <C-k> <A-n>
-
+" workaround for https://youtrack.jetbrains.com/issue/VIM-2225
+nmap <C-o> <Action>(Back)
+nmap <C-i> <Action>(Forward)
