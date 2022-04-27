@@ -65,6 +65,10 @@ alias ide='~/.scripts/ide.sh'
 alias diff='delta'
 alias ls='exa'
 alias vf='vim $(fzf)'
+alias d='docker'
+alias dc='docker container'
+alias di='docker image'
+alias dcom='docker compose'
 
 export LESS="-iNMRS"
 
