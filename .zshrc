@@ -65,10 +65,16 @@ alias ide='~/.scripts/ide.sh'
 alias diff='delta'
 alias ls='exa'
 alias vf='vim $(fzf)'
+## Docker
 alias d='docker'
-alias dc='docker container'
 alias di='docker image'
+alias dil='docker image ls -a'
+alias dc='docker container'
+alias dcl='docker container ls -a'
+alias dcr='docker container run'
+alias dcrr='docker container run --rm'
 alias dcom='docker compose'
+alias gcloud='docker run --rm --volumes-from gcloud-config gcr.io/google.com/cloudsdktool/cloud-sdk'
 
 export LESS="-iNMRS"
 
