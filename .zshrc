@@ -59,11 +59,19 @@ setopt share_history
 zplug load
 
 # aliases
-alias vim='nvim'
-alias vimdiff='nvim -d '
-alias ide='~/.scripts/ide.sh'
-alias diff='delta'
-alias ls='exa'
+if [[ $(command -v nvim) ]]; then
+  alias vim='nvim'
+  alias vimdiff='nvim -d '
+fi
+if [[ $(command -v tmux) ]]; then
+  alias ide='~/.scripts/ide.sh'
+fi
+if [[ $(command -v delta) ]]; then
+  alias diff='delta'
+fi
+if [[ $(command -v exa) ]]; then
+  alias ls='exa'
+fi
 alias vf='vim $(fzf)'
 ## Docker
 alias d='docker'
