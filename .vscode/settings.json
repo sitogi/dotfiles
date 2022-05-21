@@ -10,7 +10,7 @@
     "editor.wordWrap": "on", // コードの一行が長くなるための可読性向上
     "editor.minimap.enabled": false, // ミニマップはいらない
     "editor.insertSpaces": true, // tab キーを押すとスペースが挿入されます。
-    "editor.tabSize": 4, // tabをデフォルトで 4 スペースにする
+    "editor.tabSize": 2, // tabをデフォルトで 4 スペースにする
     "editor.renderWhitespace": "boundary", // 時間のかかるフォーマットだとバグが出るのでfalse
     "breadcrumbs.enabled": true, //エディターで開くパンくずの設定
 
@@ -94,11 +94,7 @@
     "debug.inlineValues": true,
 
     //----------------------------------------------------------
-    // vscodeのwindowの設定
-    //----------------------------------------------------------
     "window.zoomLevel": 0,
-
-    //----------------------------------------------------------
     // vscodeのterminalの設定
     //----------------------------------------------------------
     "terminal.integrated.copyOnSelection": true, // 設定した場合、ターミナルで選択しているテキストはクリップボードにコピーされます。
@@ -176,4 +172,3 @@
     "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
     "vscode-neovim.neovimInitVimPaths.darwin": "/Users/masayuki/.config/nvim/init.vim"
 }
-
