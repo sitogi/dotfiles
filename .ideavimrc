@@ -65,3 +65,4 @@ map <C-k> <A-n>
 " workaround for https://youtrack.jetbrains.com/issue/VIM-2225
 nmap <C-o> <Action>(Back)
 nmap <C-i> <Action>(Forward)
+set ideajoin
