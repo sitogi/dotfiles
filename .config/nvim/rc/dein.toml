@@ -78,8 +78,10 @@ merged = 0
 [[plugins]]
 repo = 'kyazdani42/blue-moon'
 hook_add = '''
-set termguicolors
-colorscheme blue-moon
+if !exists('g:vscode')
+  set termguicolors
+  colorscheme blue-moon
+endif
 '''
 
 [[plugins]]
@@ -94,6 +96,7 @@ nnoremap <C-P> :bprev<CR>
 '''
 
 [[plugins]]
+# repo = 'asvetliakov/vim-easymotion'
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
 nmap s <Plug>(easymotion-overwin-f2)
