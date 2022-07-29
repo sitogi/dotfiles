@@ -83,7 +83,7 @@ alias dcl='docker container ls -a'
 alias dcr='docker container run'
 alias dcrr='docker container run --rm'
 alias dcom='docker compose'
-alias gcloud='docker run --rm --volumes-from gcloud-config gcr.io/google.com/cloudsdktool/cloud-sdk'
+alias gcloud='docker run -it --rm --volumes-from gcloud-config gcr.io/google.com/cloudsdktool/cloud-sdk bash'
 
 export LESS="-iNMRS"
 
