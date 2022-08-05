@@ -91,6 +91,9 @@ set clipboard=unnamed
 set background=dark
 set t_Co=256
 
+" s での insert は何があっても動いてほしくないので無効
+nnoremap s <Nop>
+
 " dein Scripts (see: https://qiita.com/delphinus/items/00ff2c0ba972c6e41542)
 let s:dein_dir = expand('~/.config/nvim/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
@@ -104,6 +107,19 @@ endif
 
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
+
+  " easymotion の 分岐が toml 上だとうまくいかないのでこちらに記載
+  if exists('g:vscode')
+    " vscodeの場合こちらのプラグインを利用
+    call dein#add('asvetliakov/vim-easymotion')
+    " sで任意の２文字から始まる場所へジャンプ
+    nmap s <Plug>(easymotion-s2)
+  else
+    " それ以外(nvim起動等)の場合は正規vim-easymotionを利用
+    call dein#add('easymotion/vim-easymotion')
+    nmap s <Plug>(easymotion-overwin-f2)
+  endif
+  let g:EasyMotion_smartcase = 1
 
   let g:rc_dir    = expand('~/.config/nvim/rc')
   let s:toml      = g:rc_dir . '/dein.toml'

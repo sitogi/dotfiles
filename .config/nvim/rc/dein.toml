@@ -14,9 +14,6 @@ repo = 'tpope/vim-surround'
 repo = 'tpope/vim-repeat'
 
 [[plugins]]
-repo = 'machakann/vim-sandwich'
-
-[[plugins]]
 repo = 'tpope/vim-commentary'
 
 [[plugins]]
@@ -96,15 +93,6 @@ nnoremap <C-P> :bprev<CR>
 '''
 
 [[plugins]]
-# repo = 'asvetliakov/vim-easymotion'
-repo = 'easymotion/vim-easymotion'
-hook_add = '''
-nmap s <Plug>(easymotion-overwin-f2)
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_use_migemo = 1
-'''
-
-[[plugins]]
 repo = 'mg979/vim-visual-multi'
 hook_add = '''
 let g:VM_maps = {}
@@ -152,4 +140,3 @@ endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 '''
-

@@ -94,4 +94,3 @@ export FZF_DEFAULT_OPTS='--height 60% --reverse --border --preview "bat --color=
 
 # これを入れておかないと zvm で fzf のキーバインディングを上書きしてしまう
 zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
-
