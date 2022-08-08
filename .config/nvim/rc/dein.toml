@@ -51,24 +51,6 @@ let g:sonictemplate_vim_template_dir = ['~/.vim/templates']
 '''
 
 [[plugins]]
-repo = 'reireias/vim-cheatsheet'
-hook_add = '''
-let g:cheatsheet#cheat_file = '~/.vim/templates/vimCheatSheet.md'
-let g:cheatsheet#float_window = 1
-let g:cheatsheet#float_window_width_ratio = 0.6
-let g:cheatsheet#float_window_height_ratio = 0.6
-'''
-
-[[plugins]]
-repo = 'glacambre/firenvim'
-hook_add = '''
-set guifont=Consolas:h18
-'''
-hook_post_update = '''
-call firenvim#install(0)
-'''
-
-[[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 merged = 0
 
@@ -80,9 +62,6 @@ if !exists('g:vscode')
   colorscheme blue-moon
 endif
 '''
-
-[[plugins]]
-repo = 'simeji/winresizer'
 
 [[plugins]]
 repo = 'ap/vim-buftabline'
