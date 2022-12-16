@@ -155,6 +155,7 @@ nnoremap [Fzf] <Nop>
 nnoremap <Leader>f :<C-u>Files<CR>
 nnoremap <Leader>g :<C-u>GFiles<CR>
 nnoremap <Leader>b :<C-u>Buffers<CR>
+nnoremap <Leader>r :<C-u>Rg<CR>
 
 " vscode-neovim で Ctrl+J をホバー表示にする
 if exists('g:vscode')
