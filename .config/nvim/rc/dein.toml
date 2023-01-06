@@ -47,6 +47,10 @@ let g:highlightedyank_highlight_duration = 150
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
+hook_add = '''
+" Enter サジェストを確定できるようにする
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+'''
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -118,3 +122,6 @@ endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 '''
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
