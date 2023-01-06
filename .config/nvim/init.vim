@@ -161,3 +161,12 @@ nnoremap <Leader>r :<C-u>Rg<CR>
 if exists('g:vscode')
   nnoremap <C-j> <Cmd>call VSCodeCall('editor.action.showHover')<CR>
 endif
+
+" 非アクティブの場合に背景色を変える
+augroup ChangeBackground
+  autocmd!
+  autocmd WinEnter * highlight Normal guibg=default
+  autocmd WinEnter * highlight NormalNC guibg='#27292d'
+  autocmd FocusGained * highlight Normal guibg=default
+  autocmd FocusLost * highlight Normal guibg='#27292d'
+augroup END
