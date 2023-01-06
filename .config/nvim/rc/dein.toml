@@ -1,4 +1,12 @@
 [[plugins]]
+repo = 'fneu/breezy'
+hook_add = '''
+set background=dark
+set termguicolors
+colorscheme breezy
+'''
+
+[[plugins]]
 repo = 'Townk/vim-autoclose'
 
 [[plugins]]
