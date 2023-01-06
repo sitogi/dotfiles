@@ -161,4 +161,3 @@ nnoremap <Leader>r :<C-u>Rg<CR>
 if exists('g:vscode')
   nnoremap <C-j> <Cmd>call VSCodeCall('editor.action.showHover')<CR>
 endif
-

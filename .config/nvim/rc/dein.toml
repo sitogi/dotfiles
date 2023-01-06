@@ -55,15 +55,6 @@ repo = 'nvim-treesitter/nvim-treesitter'
 merged = 0
 
 [[plugins]]
-repo = 'kyazdani42/blue-moon'
-hook_add = '''
-if !exists('g:vscode')
-  set termguicolors
-  colorscheme blue-moon
-endif
-'''
-
-[[plugins]]
 repo = 'ap/vim-buftabline'
 hook_add = '''
 set hidden
