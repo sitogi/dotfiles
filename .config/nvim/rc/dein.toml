@@ -65,6 +65,12 @@ let g:sonictemplate_vim_template_dir = ['~/.vim/templates']
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 merged = 0
+hook_add = '''
+hi link typescriptStringLiteralType PreProc
+'''
+
+[[plugins]]
+repo = 'nvim-treesitter/playground'
 
 [[plugins]]
 repo = 'ap/vim-buftabline'
