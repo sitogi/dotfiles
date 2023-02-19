@@ -59,7 +59,21 @@ setopt share_history
 # Then, source plugins and add commands to $PATH
 zplug load
 
-# aliases
+# Environment Vars
+
+## less
+
+export LESS="-iNMRS"
+
+## fzf
+## export FZF_DEFAULT_COMMAND='find . -type d -name node_modules -prune -o -name .git -prune -o -name build -prune -o -type f -print'
+export FZF_DEFAULT_COMMAND='fd -H -E .git'
+export FZF_DEFAULT_OPTS='--height 60% --reverse --border --preview "bat --color=always --style=header,grid --line-range :100 {}"'
+
+# これを入れておかないと zvm で fzf のキーバインディングを上書きしてしまう
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+
+# Aliases
 if [[ $(command -v nvim) ]]; then
   alias vim='nvim'
   alias vimdiff='nvim -d '
@@ -73,7 +87,8 @@ fi
 if [[ $(command -v exa) ]]; then
   alias ls='exa'
 fi
-alias vf='vim $(fzf)'
+alias vimf='vim $(fzf)'
+
 ## Docker
 alias d='docker'
 alias di='docker image'
@@ -85,12 +100,3 @@ alias dcrr='docker container run --rm'
 alias dcom='docker compose'
 alias gcloud='docker run -it --rm --volumes-from gcloud-config gcr.io/google.com/cloudsdktool/cloud-sdk bash'
 
-export LESS="-iNMRS"
-
-# fzf
-# export FZF_DEFAULT_COMMAND='find . -type d -name node_modules -prune -o -name .git -prune -o -name build -prune -o -type f -print'
-export FZF_DEFAULT_COMMAND='fd -H -E .git'
-export FZF_DEFAULT_OPTS='--height 60% --reverse --border --preview "bat --color=always --style=header,grid --line-range :100 {}"'
-
-# これを入れておかないと zvm で fzf のキーバインディングを上書きしてしまう
-zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
