@@ -7,9 +7,6 @@ colorscheme breezy
 '''
 
 [[plugins]]
-repo = 'Townk/vim-autoclose'
-
-[[plugins]]
 repo = 'alvan/vim-closetag'
 hook_add = '''
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.blade.php,*.tsx,*.jsx'
