@@ -3,6 +3,7 @@
     email = takano162@gmail.com
 [core]
     autocrlf = input
+    safecrlf = true
     editor = vim -c \"set fenc=utf-8\"
 [alias]
     br = branch
@@ -37,4 +38,3 @@
     hunk-header-file-style = red
     hunk-header-line-number-style = "#067a00"
     hunk-header-style = file line-number syntax
-
