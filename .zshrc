@@ -101,4 +101,6 @@ alias dcom='docker compose'
 alias gcloud='docker run -it --rm --volumes-from gcloud-config gcr.io/google.com/cloudsdktool/cloud-sdk bash'
 
 # Rust
-export PATH="$HOME/.cargo/bin:$PATH"export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="$HOME/JetBrains:$PATH"
