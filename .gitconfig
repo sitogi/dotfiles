@@ -1,6 +1,6 @@
-[user]
-    name = sitogi
-    email = takano162@gmail.com
+[include]
+    # Go out to separate user information for private and company
+    path = ~/.gitconfig.user
 [core]
     autocrlf = input
     safecrlf = true
@@ -19,17 +19,13 @@
     reflog = delta
     show = delta
     branch = cat
-
 [interactive]
     diffFilter = delta --color-only --features=interactive
-
 [delta]
     features = decorations
     side-by-side = true
-
 [delta "interactive"]
     keep-plus-minus-markers = false
-
 [delta "decorations"]
     commit-decoration-style = blue ol
     commit-style = raw
@@ -39,4 +35,4 @@
     hunk-header-line-number-style = "#067a00"
     hunk-header-style = file line-number syntax
 [fetch]
-	prune = true
+    prune = true

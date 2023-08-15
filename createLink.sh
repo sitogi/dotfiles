@@ -8,6 +8,7 @@ ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.ideavimrc ~/.ideavimrc
 ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/.gitconfig.user ~/.gitconfig.user
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.fzf.bash ~/.fzf.bash
 ln -sf ~/dotfiles/.fzf.zsh ~/.fzf.zsh
@@ -24,12 +25,6 @@ ln -sf ~/dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim
 ln -sf ~/dotfiles/.config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
 ln -sf ~/dotfiles/.config/nvim/rc/dein_lazy.toml ~/.config/nvim/rc/dein_lazy.toml
 ln -sf ~/dotfiles/.config/nvim/rc/dein.toml ~/.config/nvim/rc/dein.toml
-
-# VSCode Settings
-mkdir -p ~/.config/Code/User
-ln -sf ~/dotfiles/.vscode/settings.json "/Users/masayuki/Library/Application Support/Code/User/settings.json"
-ln -sf ~/dotfiles/.vscode/keybindings.json "/Users/masayuki/Library/Application Support/Code/User/keybindings.json"
-sh ~/dotfiles/.vscode/installExtensions.sh
 
 # Scripts
 mkdir -p ~/.scripts
