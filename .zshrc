@@ -99,6 +99,8 @@ alias dcr='docker container run'
 alias dcrr='docker container run --rm'
 alias dcom='docker compose'
 alias gcloud='docker run -it --rm --volumes-from gcloud-config gcr.io/google.com/cloudsdktool/cloud-sdk bash'
+## Raycast
+alias confetti='open -g raycast://confetti'
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
