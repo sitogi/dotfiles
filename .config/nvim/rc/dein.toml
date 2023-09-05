@@ -47,6 +47,8 @@ rev = 'release'
 hook_add = '''
 " Enter サジェストを確定できるようにする
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+" Markdown ファイルではポップアップを出さないようにする
+autocmd FileType markdown let b:coc_suggest_disable = 1
 '''
 
 [[plugins]]
