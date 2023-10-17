@@ -5,6 +5,7 @@
     autocrlf = input
     safecrlf = true
     editor = vim -c \"set fenc=utf-8\"
+    quotepath = off
 [alias]
     br = branch
     co = checkout
