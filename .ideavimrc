@@ -66,3 +66,4 @@ map <C-k> <A-n>
 nmap <C-o> <Action>(Back)
 nmap <C-i> <Action>(Forward)
 set ideajoin
+set matchit
