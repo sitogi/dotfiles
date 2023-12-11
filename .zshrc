@@ -106,3 +106,6 @@ alias confetti='open -g raycast://confetti'
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="$HOME/JetBrains:$PATH"
+
+# Deno
+export PATH="$HOME/.deno/bin:$PATH"
