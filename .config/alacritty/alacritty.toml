@@ -1,0 +1,71 @@
+[colors]
+transparent_background_colors = true
+
+[colors.bright]
+black = "0x6D7070"
+blue = "0x1BA6FA"
+cyan = "0x73FBF1"
+green = "0xB8E466"
+magenta = "0xA578EA"
+red = "0xFF4352"
+white = "0xFEFEF8"
+yellow = "0xFFD750"
+
+[colors.cursor]
+cursor = "0xFF261E"
+text = "0xFF261E"
+
+[colors.normal]
+black = "0x0d0d0d"
+blue = "0x1BA6FA"
+cyan = "0x21DEEF"
+green = "0xA0E521"
+magenta = "0x8763B8"
+red = "0xFF301B"
+white = "0xEBEBEB"
+yellow = "0xFFC620"
+
+[colors.primary]
+background = "0x000000"
+foreground = "0xEBEBEB"
+
+[font]
+size = 16.0
+
+[shell]
+args = ["-l", "-c", "tmux attach || tmux"]
+program = "/bin/zsh"
+
+[window]
+opacity = 0.8
+startup_mode = "Maximized"
+
+[keyboard]
+bindings = [
+  { key = "A", mods = "Command", action = "ReceiveChar" },
+  { key = "B", mods = "Command", action = "ReceiveChar" },
+# { key = "C", mods = "Command", action = "ReceiveChar" },
+  { key = "D", mods = "Command", action = "ReceiveChar" },
+  { key = "E", mods = "Command", action = "ReceiveChar" },
+  { key = "F", mods = "Command", action = "ReceiveChar" },
+  { key = "G", mods = "Command", action = "ReceiveChar" },
+  { key = "H", mods = "Command", action = "ReceiveChar" },
+  { key = "I", mods = "Command", action = "ReceiveChar" },
+  { key = "J", mods = "Command", action = "ReceiveChar" },
+  { key = "K", mods = "Command", action = "ReceiveChar" },
+  { key = "L", mods = "Command", action = "ReceiveChar" },
+  { key = "M", mods = "Command", action = "ReceiveChar" },
+  { key = "N", mods = "Command", action = "ReceiveChar" },
+  { key = "O", mods = "Command", action = "ReceiveChar" },
+  { key = "P", mods = "Command", action = "ReceiveChar" },
+# { key = "Q", mods = "Command", action = "ReceiveChar" },
+  { key = "R", mods = "Command", action = "ReceiveChar" },
+  { key = "S", mods = "Command", action = "ReceiveChar" },
+  { key = "T", mods = "Command", action = "ReceiveChar" },
+  { key = "U", mods = "Command", action = "ReceiveChar" },
+# { key = "V", mods = "Command", action = "ReceiveChar" },
+  { key = "W", mods = "Command", action = "ReceiveChar" },
+  { key = "X", mods = "Command", action = "ReceiveChar" },
+  { key = "Y", mods = "Command", action = "ReceiveChar" },
+  { key = "Z", mods = "Command", action = "ReceiveChar" },
+]

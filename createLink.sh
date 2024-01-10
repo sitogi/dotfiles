@@ -32,4 +32,4 @@ ln -sf ~/dotfiles/.scripts/ide.sh ~/.scripts/ide.sh
 
 # Alacritty
 mkdir -p ~/.config/alacritty
-ln -sf ~/dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -sf ~/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
