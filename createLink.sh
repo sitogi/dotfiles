@@ -33,3 +33,6 @@ ln -sf ~/dotfiles/.scripts/ide.sh ~/.scripts/ide.sh
 # Alacritty
 mkdir -p ~/.config/alacritty
 ln -sf ~/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
+
+# WezTerm
+ln -sf ~/dotfiles/.config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
