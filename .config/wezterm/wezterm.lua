@@ -16,9 +16,10 @@ end
 -- config.color_scheme = 'AdventureTime'
 
 -- 追加したもの
-config.font_size = 16.0
+config.font = wezterm.font("HackGen Console NF", {weight="Regular", stretch="Normal", style="Normal"})
+config.font_size = 16
 config.hide_tab_bar_if_only_one_tab = true
-config.window_background_opacity = 0.75
+config.window_background_opacity = 0.65
 
 -- and finally, return the configuration to wezterm
 return config
