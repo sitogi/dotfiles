@@ -12,7 +12,7 @@ end
 
 -- 追加したもの
 config.font = wezterm.font("HackGen Console NF", {weight="Regular", stretch="Normal", style="Normal"})
-config.font_size = 16
+config.font_size = 16.5
 
 config.color_scheme = 'Orangish (terminal.sexy)'
 
