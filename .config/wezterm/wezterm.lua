@@ -11,7 +11,7 @@ if wezterm.config_builder then
 end
 
 -- 追加したもの
-config.font = wezterm.font("HackGen Console NF", {weight="Regular", stretch="Normal", style="Normal"})
+config.font = wezterm.font("Moralerspace Neon", {weight="Regular", stretch="Normal", style="Normal"})
 config.font_size = 16.5
 
 config.color_scheme = 'Orangish (terminal.sexy)'
