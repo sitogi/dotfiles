@@ -125,7 +125,7 @@ if dein#load_state(s:dein_dir)
   else
     " それ以外(nvim起動等)の場合は正規vim-easymotionを利用
     call dein#add('easymotion/vim-easymotion')
-    nmap s <Plug>(easymotion-overwin-f2)
+    nmap s <Plug>(easymotion-s2)
   endif
   let g:EasyMotion_smartcase = 1
 
