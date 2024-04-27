@@ -88,8 +88,6 @@ if [[ $(command -v exa) ]]; then
   alias ls='exa'
 fi
 alias vimf='vim $(fzf)'
-
-## Docker
 alias d='docker'
 alias di='docker image'
 alias dil='docker image ls -a'
@@ -99,13 +97,13 @@ alias dcr='docker container run'
 alias dcrr='docker container run --rm'
 alias dcom='docker compose'
 alias gcloud='docker run -it --rm --volumes-from gcloud-config gcr.io/google.com/cloudsdktool/cloud-sdk bash'
-## Raycast
 alias confetti='open -g raycast://confetti'
+alias npmf='jq -r '\''.scripts | to_entries[] | "\(.key)"'\'' package.json | fzf | xargs npm run'
 
-# Rust
+# PATH
+## Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="$HOME/JetBrains:$PATH"
-
-# Deno
+## Deno
 export PATH="$HOME/.deno/bin:$PATH"
