@@ -99,6 +99,7 @@ alias dcom='docker compose'
 alias gcloud='docker run -it --rm --volumes-from gcloud-config gcr.io/google.com/cloudsdktool/cloud-sdk bash'
 alias confetti='open -g raycast://confetti'
 alias npmf='jq -r '\''.scripts | to_entries[] | "\(.key)"'\'' package.json | fzf | xargs npm run'
+alias gencm='HOME=/dev/null git diff HEAD | pbcopy && open -g raycast://ai-commands/generate-commit-message'
 
 # PATH
 ## Rust
