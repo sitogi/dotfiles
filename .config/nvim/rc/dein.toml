@@ -130,3 +130,6 @@ command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'github/copilot.vim'
