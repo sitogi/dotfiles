@@ -84,6 +84,9 @@ fi
 if [[ $(command -v delta) ]]; then
   alias diff='delta'
 fi
+if [[ $(command -v eza) ]]; then
+  alias ls='eza'
+fi
 alias vimf='vim $(fzf)'
 alias d='docker'
 alias di='docker image'
