@@ -61,6 +61,10 @@ zplug load
 
 # Environment Vars
 
+## ls
+
+export TIME_STYLE="+%Y-%m-%d %H:%M:%S"
+
 ## less
 
 export LESS="-iNMRS"
