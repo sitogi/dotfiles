@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/Users/masayuki/.zsh/completions:"* ]]; then export FPATH="/Users/masayuki/.zsh/completions:$FPATH"; fi
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
@@ -113,3 +115,7 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="$HOME/JetBrains:$PATH"
 ## Deno
 export PATH="$HOME/.deno/bin:$PATH"
+. "/Users/masayuki/.deno/env"
+# Initialize zsh completions (added by deno install script)
+autoload -Uz compinit
+compinit

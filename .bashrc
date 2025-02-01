@@ -151,3 +151,4 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 . "$HOME/.cargo/env"
+. "/Users/masayuki/.deno/env"
