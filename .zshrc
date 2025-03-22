@@ -107,6 +107,8 @@ alias confetti='open -g raycast://confetti'
 alias npmf='jq -r '\''.scripts | to_entries[] | "\(.key)"'\'' package.json | fzf | xargs npm run'
 alias gencm='HOME=/dev/null git diff HEAD | pbcopy && open -g raycast://ai-commands/generate-commit-message'
 alias cdf='cd $(fd --type d --hidden --exclude .git --exclude node_modules . ~ | fzf)'
+alias tf='terraform'
+alias p='pnpm'
 
 # PATH
 ## Rust
