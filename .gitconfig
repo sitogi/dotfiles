@@ -6,6 +6,7 @@
     safecrlf = true
     editor = vim -c \"set fenc=utf-8\"
     quotepath = off
+    excludesfile = /Users/masayuki/.gitignore_global
 [alias]
     br = branch
     co = checkout
