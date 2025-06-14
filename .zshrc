@@ -109,6 +109,7 @@ alias gencm='HOME=/dev/null git diff HEAD | pbcopy && open -g raycast://ai-comma
 alias cdf='cd $(fd --type d --hidden --exclude .git --exclude node_modules . ~ | fzf)'
 alias tf='terraform'
 alias p='pnpm'
+alias yolo='claude --dangerously-skip-permissions'
 
 # PATH
 ## Rust
