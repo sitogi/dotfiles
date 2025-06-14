@@ -30,6 +30,7 @@ ln -sf ~/dotfiles/.config/nvim/rc/dein.toml ~/.config/nvim/rc/dein.toml
 # Scripts
 mkdir -p ~/.scripts
 ln -sf ~/dotfiles/.scripts/ide.sh ~/.scripts/ide.sh
+ln -sf ~/dotfiles/.scripts/cc.sh ~/.scripts/cc.sh
 
 # Alacritty
 mkdir -p ~/.config/alacritty
