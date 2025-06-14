@@ -87,6 +87,9 @@ fi
 if [[ $(command -v tmux) ]]; then
   alias ide='~/.scripts/ide.sh'
 fi
+if [[ $(command -v tmux) ]]; then
+  alias cc='~/.scripts/cc.sh'
+fi
 if [[ $(command -v delta) ]]; then
   alias diff='delta'
 fi

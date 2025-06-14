@@ -7,7 +7,7 @@
 #   3つのペインに分割します：
 #   - 左上: 編集用
 #   - 左下: git操作用
-#   - 右側（広め）: claudeコマンドを実行
+#   - 右側: claudeコマンドを実行
 #
 # 使用方法:
 #   tmux-worktree <ブランチ名> [ベースブランチ]
@@ -60,12 +60,13 @@ fi
 echo "Worktree created successfully. Setting up tmux..."
 
 # tmuxウィンドウを作成してレイアウト構築
-# 1. まず左右分割（左40%, 右60%）
-# 2. 左側を上下分割
-# 3. 右側でclaudeを実行
+# 1. 新しいウィンドウを作成
+# 2. 左右分割
+# 3. 右側でclaudeを起動
+# 4. 左側に戻って上下分割
 tmux new-window -n "wt-$branch_name" -c "$worktree_dir" \; \
-  split-window -h -p 60 -c "$worktree_dir" \; \
+  split-window -h -c "$worktree_dir" \; \
   send-keys "claude" Enter \; \
-  select-pane -t 0 \; \
+  select-pane -L \; \
   split-window -v -c "$worktree_dir" \; \
-  select-pane -t 0
+  select-pane -R
