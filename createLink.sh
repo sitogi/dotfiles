@@ -42,3 +42,4 @@ ln -sf ~/dotfiles/.config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
 # Claude Code
 mkdir -p ~/.claude
 ln -sf ~/dotfiles/.claude/CLAUDE.md ~/.claude/CLAUDE.md
+ln -sf ~/dotfiles/.claude/settings.json ~/.claude/settings.json
