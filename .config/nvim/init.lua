@@ -226,4 +226,123 @@ require("lazy").setup({
 
   -- GitHub Copilot
   { "github/copilot.vim" },
+
+  -- LSP 関連
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+    },
+    config = function()
+      -- Mason のセットアップ
+      require("mason").setup({
+        ui = {
+          icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+          }
+        }
+      })
+
+      require("mason-lspconfig").setup({
+        ensure_installed = { "ts_ls" },
+        automatic_installation = true,
+      })
+
+      -- LSP の設定
+      local lspconfig = require("lspconfig")
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+      -- TypeScript/JavaScript の設定
+      lspconfig.ts_ls.setup({
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+          -- キーマッピング
+          local opts = { buffer = bufnr, noremap = true, silent = true }
+          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+          vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+          vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+          vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+          vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, opts)
+          vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+          vim.keymap.set('n', '<leader>f', function()
+            vim.lsp.buf.format({ async = true })
+          end, opts)
+          vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+          vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+          vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
+        end,
+      })
+
+      -- 診断表示の設定
+      vim.diagnostic.config({
+        virtual_text = true,
+        signs = true,
+        underline = true,
+        update_in_insert = false,
+        severity_sort = true,
+      })
+
+      -- 診断記号の設定
+      local signs = { Error = "✗", Warn = "⚠", Hint = "💡", Info = "ℹ" }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+      end
+    end,
+  },
+
+  -- 自動補完
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+    },
+    config = function()
+      local cmp = require("cmp")
+      local luasnip = require("luasnip")
+
+      cmp.setup({
+        snippet = {
+          expand = function(args)
+            luasnip.lsp_expand(args.body)
+          end,
+        },
+        mapping = cmp.mapping.preset.insert({
+          ['<Tab>'] = cmp.mapping.select_next_item(),
+          ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-e>'] = cmp.mapping.abort(),
+          ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        }),
+        sources = cmp.config.sources({
+          { name = 'nvim_lsp' },
+          { name = 'luasnip' },
+        }, {
+          { name = 'buffer' },
+          { name = 'path' },
+        }),
+        formatting = {
+          format = function(entry, vim_item)
+            -- 補完項目のソース表示
+            vim_item.menu = ({
+              nvim_lsp = "[LSP]",
+              luasnip = "[Snippet]",
+              buffer = "[Buffer]",
+              path = "[Path]",
+            })[entry.source.name]
+            return vim_item
+          end,
+        },
+      })
+    end,
+  },
 })
