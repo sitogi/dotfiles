@@ -21,11 +21,8 @@ ln -sf ~/dotfiles/.vim/rc/dein.toml ~/.vim/rc/dein.toml
 ln -sf ~/dotfiles/.vim/templates ~/.vim/templates
 
 # Neovim
-mkdir -p ~/.config/nvim/rc
-ln -sf ~/dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim
-ln -sf ~/dotfiles/.config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json
-ln -sf ~/dotfiles/.config/nvim/rc/dein_lazy.toml ~/.config/nvim/rc/dein_lazy.toml
-ln -sf ~/dotfiles/.config/nvim/rc/dein.toml ~/.config/nvim/rc/dein.toml
+mkdir -p ~/.config
+ln -sf ~/dotfiles/.config/nvim ~/.config/nvim
 
 # Scripts
 mkdir -p ~/.scripts

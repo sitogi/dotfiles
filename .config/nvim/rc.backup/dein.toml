@@ -1,0 +1,135 @@
+[[plugins]]
+repo = 'fneu/breezy'
+hook_add = '''
+set background=dark
+set termguicolors
+colorscheme breezy
+'''
+
+[[plugins]]
+repo = 'alvan/vim-closetag'
+hook_add = '''
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.blade.php,*.tsx,*.jsx'
+'''
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
+
+[[plugins]]
+repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'preservim/nerdtree'
+hook_add = '''
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+" Vim を開く際にディレクトリを指定した場合に自動的にツリーを開く
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" 最後に残されたウィンドウがツリーのみの場合に Vim を終了する
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+'''
+
+[[plugins]]
+repo = 'machakann/vim-highlightedyank'
+hook_add = '''
+let g:highlightedyank_highlight_duration = 150
+'''
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+hook_add = '''
+" Enter サジェストを確定できるようにする
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+" Markdown ファイルではポップアップを出さないようにする
+autocmd FileType markdown let b:coc_suggest_disable = 1
+'''
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'mattn/sonictemplate-vim'
+hook_add = '''
+let g:sonictemplate_vim_template_dir = ['~/.vim/templates']
+'''
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+merged = 0
+hook_add = '''
+hi link typescriptStringLiteralType PreProc
+'''
+
+[[plugins]]
+repo = 'nvim-treesitter/playground'
+
+[[plugins]]
+repo = 'ap/vim-buftabline'
+hook_add = '''
+set hidden
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
+'''
+
+[[plugins]]
+repo = 'mg979/vim-visual-multi'
+hook_add = '''
+let g:VM_maps = {}
+let g:VM_maps['Find Under']         = '<C-k>'           " replace C-n
+let g:VM_maps['Find Subword Under'] = '<C-k>'           " replace visual C-n
+'''
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
+repo = 'kana/vim-operator-replace'
+hook_add = '''
+nmap R <Plug>(operator-replace)
+'''
+
+[[plugins]]
+repo = 'junegunn/fzf'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+on_cmd = [
+    'Files',
+    'ProjectFiles',
+    'Buffers',
+    'BLines',
+    'History',
+    'Tags',
+    'BTags',
+    'GFiles',
+    'Ag',
+]
+hook_add = '''
+set rtp+=~/.config/nvim/.cache/dein/repos/github.com/junegunn/fzf
+nnoremap <silent> <Leader>fg :GFiles<CR>
+nnoremap <silent> <Leader>fr :RG<CR>
+
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+'''
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'github/copilot.vim'
