@@ -175,35 +175,6 @@ require("lazy").setup({
     end,
   },
 
-  -- ファジーファインダー
-  {
-    "junegunn/fzf",
-    build = "./install --bin",
-  },
-  {
-    "junegunn/fzf.vim",
-    dependencies = { "junegunn/fzf" },
-    config = function()
-      vim.keymap.set('n', '<Leader>f', ':<C-u>Files<CR>', { noremap = true })
-      vim.keymap.set('n', '<Leader>g', ':<C-u>GFiles<CR>', { noremap = true })
-      vim.keymap.set('n', '<Leader>b', ':<C-u>Buffers<CR>', { noremap = true })
-      vim.keymap.set('n', '<Leader>r', ':<C-u>RG<CR>', { noremap = true })
-      vim.keymap.set('n', '<Leader>fg', ':GFiles<CR>', { noremap = true, silent = true })
-      vim.keymap.set('n', '<Leader>fr', ':RG<CR>', { noremap = true, silent = true })
-
-      -- RipGrep 統合
-      vim.cmd([[
-        function! RipgrepFzf(query, fullscreen)
-          let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
-          let initial_command = printf(command_fmt, shellescape(a:query))
-          let reload_command = printf(command_fmt, '{q}')
-          let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-          call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-        endfunction
-        command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-      ]])
-    end,
-  },
 
   -- タグ自動閉じ
   {
@@ -267,12 +238,12 @@ require("lazy").setup({
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
           vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, opts)
           vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-          vim.keymap.set('n', '<leader>f', function()
+          vim.keymap.set('n', '<leader>F', function()
             vim.lsp.buf.format({ async = true })
           end, opts)
           vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
           vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-          vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
+          vim.keymap.set('n', '<leader>E', vim.diagnostic.open_float, opts)
         end,
       })
 
@@ -391,6 +362,11 @@ require("lazy").setup({
           find_files = {
             hidden = true,
           },
+          live_grep = {
+            additional_args = function()
+              return { "--hidden" }
+            end,
+          },
         },
       })
 
@@ -398,30 +374,24 @@ require("lazy").setup({
       telescope.load_extension("fzf")
 
       -- キーマッピング
-      -- ファイル検索
-      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find files" })
-      vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = "Find git files" })
-      vim.keymap.set('n', '<leader>fr', builtin.live_grep, { desc = "Live grep" })
-      vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Find buffers" })
-      vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Help tags" })
+      -- ファイル検索系
+      vim.keymap.set('n', '<leader>f', builtin.git_files, { desc = "Files (git)" })
+      vim.keymap.set('n', '<leader>g', builtin.live_grep, { desc = "Grep (live grep)" })
+      vim.keymap.set('n', '<leader>e', builtin.oldfiles, { desc = "rEcent files" })
+      vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = "Buffers" })
+      vim.keymap.set('n', '<leader>h', builtin.help_tags, { desc = "Help tags" })
 
-      -- LSP 関連
-      vim.keymap.set('n', '<leader>ld', builtin.lsp_definitions, { desc = "LSP definitions" })
-      vim.keymap.set('n', '<leader>lr', builtin.lsp_references, { desc = "LSP references" })
-      vim.keymap.set('n', '<leader>ls', builtin.lsp_document_symbols, { desc = "Document symbols" })
-      vim.keymap.set('n', '<leader>lw', builtin.lsp_workspace_symbols, { desc = "Workspace symbols" })
-      vim.keymap.set('n', '<leader>le', builtin.diagnostics, { desc = "Diagnostics" })
+      -- LSP 関連 (td, tr, ts, tw, te として配置)
+      vim.keymap.set('n', '<leader>td', builtin.lsp_definitions, { desc = "To Definition" })
+      vim.keymap.set('n', '<leader>tr', builtin.lsp_references, { desc = "To References" })
+      vim.keymap.set('n', '<leader>ts', builtin.lsp_document_symbols, { desc = "To Symbols (document)" })
+      vim.keymap.set('n', '<leader>tw', builtin.lsp_workspace_symbols, { desc = "To Workspace symbols" })
+      vim.keymap.set('n', '<leader>te', builtin.diagnostics, { desc = "To Errors (diagnostics)" })
 
-      -- Git 関連
-      vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = "Git commits" })
-      vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = "Git branches" })
-      vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = "Git status" })
-
-      -- その他
-      vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = "Recent files" })
-      vim.keymap.set('n', '<leader>fm', builtin.marks, { desc = "Marks" })
-      vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = "Keymaps" })
-      vim.keymap.set('n', '<leader>fc', builtin.commands, { desc = "Commands" })
+      -- その他の便利機能
+      vim.keymap.set('n', '<leader>m', builtin.marks, { desc = "Marks" })
+      vim.keymap.set('n', '<leader>k', builtin.keymaps, { desc = "Keymaps" })
+      vim.keymap.set('n', '<leader>c', builtin.commands, { desc = "Commands" })
     end,
   },
 })
