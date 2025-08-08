@@ -1,5 +1,5 @@
 -- 基本設定
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 vim.o.encoding = "utf-8"
 vim.o.fileencoding = "utf-8"
 vim.o.backup = false
@@ -343,6 +343,85 @@ require("lazy").setup({
           end,
         },
       })
+    end,
+  },
+
+  -- Telescope (高機能ファジーファインダー)
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      -- パフォーマンス向上のための fzf ネイティブ拡張
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+      },
+    },
+    config = function()
+      local telescope = require("telescope")
+      local actions = require("telescope.actions")
+      local builtin = require("telescope.builtin")
+
+      telescope.setup({
+        defaults = {
+          mappings = {
+            i = {
+              ["<C-j>"] = actions.move_selection_next,
+              ["<C-k>"] = actions.move_selection_previous,
+              ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+              ["<esc>"] = actions.close,
+            },
+            n = {
+              ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            },
+          },
+          layout_config = {
+            horizontal = {
+              preview_width = 0.6,
+            },
+          },
+          file_ignore_patterns = {
+            "node_modules",
+            ".git/",
+            "dist/",
+            "build/",
+          },
+        },
+        pickers = {
+          find_files = {
+            hidden = true,
+          },
+        },
+      })
+
+      -- fzf ネイティブ拡張を読み込み
+      telescope.load_extension("fzf")
+
+      -- キーマッピング
+      -- ファイル検索
+      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find files" })
+      vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = "Find git files" })
+      vim.keymap.set('n', '<leader>fr', builtin.live_grep, { desc = "Live grep" })
+      vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Find buffers" })
+      vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Help tags" })
+
+      -- LSP 関連
+      vim.keymap.set('n', '<leader>ld', builtin.lsp_definitions, { desc = "LSP definitions" })
+      vim.keymap.set('n', '<leader>lr', builtin.lsp_references, { desc = "LSP references" })
+      vim.keymap.set('n', '<leader>ls', builtin.lsp_document_symbols, { desc = "Document symbols" })
+      vim.keymap.set('n', '<leader>lw', builtin.lsp_workspace_symbols, { desc = "Workspace symbols" })
+      vim.keymap.set('n', '<leader>le', builtin.diagnostics, { desc = "Diagnostics" })
+
+      -- Git 関連
+      vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = "Git commits" })
+      vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = "Git branches" })
+      vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = "Git status" })
+
+      -- その他
+      vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = "Recent files" })
+      vim.keymap.set('n', '<leader>fm', builtin.marks, { desc = "Marks" })
+      vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = "Keymaps" })
+      vim.keymap.set('n', '<leader>fc', builtin.commands, { desc = "Commands" })
     end,
   },
 })
