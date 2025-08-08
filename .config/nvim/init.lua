@@ -102,10 +102,20 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   -- カラースキーム
   {
-    "fneu/breezy",
+    "folke/tokyonight.nvim",
+    lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd("colorscheme breezy")
+      require("tokyonight").setup({
+        style = "night",  -- "storm", "moon", "night", "day" から選択
+        transparent = false,
+        terminal_colors = true,
+        styles = {
+          comments = { italic = true },
+          keywords = { italic = true },
+        },
+      })
+      vim.cmd("colorscheme tokyonight")
     end,
   },
 
@@ -392,6 +402,62 @@ require("lazy").setup({
       vim.keymap.set('n', '<leader>m', builtin.marks, { desc = "Marks" })
       vim.keymap.set('n', '<leader>k', builtin.keymaps, { desc = "Keymaps" })
       vim.keymap.set('n', '<leader>c', builtin.commands, { desc = "Commands" })
+    end,
+  },
+
+  -- Treesitter (高度なシンタックスハイライト)
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        -- 自動インストールする言語
+        ensure_installed = {
+          "typescript",
+          "javascript",
+          "tsx",
+          "json",
+          "html",
+          "css",
+          "markdown",
+          "markdown_inline",
+          "lua",
+          "vim",
+          "vimdoc",
+          "yaml",
+          "toml",
+        },
+
+        -- 自動インストールを有効化
+        auto_install = true,
+
+        -- シンタックスハイライト
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = { "markdown" },  -- Markdown は両方使う
+        },
+
+        -- インデント
+        indent = {
+          enable = true,
+        },
+
+        -- 選択範囲の拡張 (v を押すたびに拡大)
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "gnn",
+            node_incremental = "grn",
+            scope_incremental = "grc",
+            node_decremental = "grm",
+          },
+        },
+      })
+
+      -- 折りたたみを Treesitter ベースに設定
+      vim.o.foldmethod = "expr"
+      vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+      vim.o.foldenable = false  -- 起動時は折りたたまない
     end,
   },
 })
