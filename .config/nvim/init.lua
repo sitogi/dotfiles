@@ -401,8 +401,19 @@ require("lazy").setup({
       -- その他の便利機能
       vim.keymap.set('n', '<leader>m', builtin.marks, { desc = "Marks" })
       vim.keymap.set('n', '<leader>k', builtin.keymaps, { desc = "Keymaps" })
-      vim.keymap.set('n', '<leader>c', builtin.commands, { desc = "Commands" })
+      vim.keymap.set('n', '<leader>:', builtin.commands, { desc = "Commands" })
     end,
+  },
+
+  -- Claude Code AI アシスタント統合
+  {
+    "coder/claudecode.nvim",
+    dependencies = { "folke/snacks.nvim" },
+    config = true,
+    keys = {
+      { "<leader>cc", "<cmd>ClaudeCode<cr>", desc = "Claude Code" },
+      { "<leader>cs", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Claude Send" }
+    }
   },
 
   -- Treesitter (高度なシンタックスハイライト)
