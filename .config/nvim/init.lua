@@ -295,19 +295,23 @@ require("lazy").setup({
   {
     "ap/vim-buftabline",
     config = function()
-      vim.keymap.set('n', '<C-N>', ':bnext<CR>', { noremap = true })
-      vim.keymap.set('n', '<C-P>', ':bprev<CR>', { noremap = true })
+      -- バッファ切り替えのキーマッピング
+      -- silent を追加してコマンドラインに表示されないようにする
+      vim.keymap.set('n', '<C-n>', ':bnext<CR>', { noremap = true, silent = true, desc = "Next buffer" })
+      vim.keymap.set('n', '<C-p>', ':bprev<CR>', { noremap = true, silent = true, desc = "Previous buffer" })
     end,
   },
 
   -- マルチカーソル
   {
     "mg979/vim-visual-multi",
-    config = function()
-      vim.g.VM_maps = {
-        ['Find Under'] = '<C-k>',
-        ['Find Subword Under'] = '<C-k>',
-      }
+    init = function()
+      -- プラグイン読み込み前に VM_maps を設定
+      -- デフォルトの Ctrl+n はバッファ切り替え (bnext) と競合するため Ctrl+k に変更
+      local t = {}
+      t["Find Under"] = "<C-k>"
+      t["Find Subword Under"] = "<C-k>"
+      vim.g.VM_maps = t
     end,
   },
 
@@ -449,6 +453,9 @@ require("lazy").setup({
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-e>'] = cmp.mapping.abort(),
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
+          -- デフォルトの C-n/C-p を明示的に無効化 (バッファ切り替えに使うため)
+          ['<C-n>'] = cmp.mapping(function() end, { 'i', 's' }),
+          ['<C-p>'] = cmp.mapping(function() end, { 'i', 's' }),
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
