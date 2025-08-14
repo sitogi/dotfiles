@@ -194,7 +194,7 @@ require("lazy").setup({
         },
         window = {
           position = "left",
-          width = 30,
+          width = 40,  -- 30 から 40 に変更
           mapping_options = {
             noremap = true,
             nowait = true,
@@ -321,6 +321,16 @@ require("lazy").setup({
     end,
   },
 
+  -- ウィンドウリサイズ
+  {
+    "simeji/winresizer",
+    init = function()
+      -- プラグイン読み込み前に設定する必要がある
+      vim.g.winresizer_start_key = '<leader>w'
+      vim.g.winresizer_vert_resize = 5
+      vim.g.winresizer_horiz_resize = 5
+    end,
+  },
 
   -- タグ自動閉じ
   {
