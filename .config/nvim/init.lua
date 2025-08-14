@@ -53,6 +53,7 @@ vim.keymap.set('i', 'jj', '<Esc>', { noremap = true, silent = true })
 vim.keymap.set('n', 's', '<Nop>', { noremap = true })
 vim.keymap.set('n', 'O', ':<C-u>call append(expand("."), "")<Cr>j', { noremap = true })
 
+
 -- 保存時の自動整形
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
@@ -301,8 +302,8 @@ require("lazy").setup({
         options = {
           mode = "buffers",  -- バッファモード
           numbers = "none",  -- 番号表示なし
-          close_command = "bdelete! %d",
-          right_mouse_command = "bdelete! %d",
+          close_command = "bdelete %d",
+          right_mouse_command = "bdelete %d",
           left_mouse_command = "buffer %d",
           middle_mouse_command = nil,
           indicator = {
@@ -342,17 +343,30 @@ require("lazy").setup({
           always_show_bufferline = true,
         },
       })
-      
+
       -- バッファ切り替えのキーマッピング
       vim.keymap.set('n', '<C-n>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true, desc = "Next buffer" })
       vim.keymap.set('n', '<C-p>', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true, desc = "Previous buffer" })
-      
+
       -- 追加の便利なキーマッピング
       vim.keymap.set('n', '<leader>1', ':BufferLineGoToBuffer 1<CR>', { noremap = true, silent = true, desc = "Go to buffer 1" })
       vim.keymap.set('n', '<leader>2', ':BufferLineGoToBuffer 2<CR>', { noremap = true, silent = true, desc = "Go to buffer 2" })
       vim.keymap.set('n', '<leader>3', ':BufferLineGoToBuffer 3<CR>', { noremap = true, silent = true, desc = "Go to buffer 3" })
       vim.keymap.set('n', '<leader>4', ':BufferLineGoToBuffer 4<CR>', { noremap = true, silent = true, desc = "Go to buffer 4" })
       vim.keymap.set('n', '<leader>5', ':BufferLineGoToBuffer 5<CR>', { noremap = true, silent = true, desc = "Go to buffer 5" })
+
+    end,
+  },
+
+  -- バッファ管理 (Neo-tree で :bd で Vim が閉じてしまう問題を回避)
+  -- https://github.com/nvim-neo-tree/neo-tree.nvim/issues/1580 参照
+  {
+    "moll/vim-bbye",
+    config = function()
+      vim.cmd('cabbrev bd Bdelete')
+      vim.cmd('cabbrev bdelete Bdelete')
+      vim.cmd('cabbrev bw Bwipeout')
+      vim.cmd('cabbrev bwipeout Bwipeout')
     end,
   },
 
