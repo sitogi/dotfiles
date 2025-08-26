@@ -36,7 +36,7 @@ ln -sf ~/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty
 # WezTerm
 ln -sf ~/dotfiles/.config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
 
-# Claude Code
-mkdir -p ~/.claude
-ln -sf ~/dotfiles/.claude/CLAUDE.md ~/.claude/CLAUDE.md
-ln -sf ~/dotfiles/.claude/settings.json ~/.claude/settings.json
+# Claude Code (他にも色々作られるので、個別にリンクを貼っておかないとダメ)
+ln -sf ~/dotfiles/config/claude/CLAUDE.md ~/.claude/CLAUDE.md
+ln -sf ~/dotfiles/config/claude/setting.json ~/.claude/setting.json
+ln -sf ~/dotfiles/config/claude/statusline.js ~/.claude/statusline.js
