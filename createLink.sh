@@ -40,3 +40,6 @@ ln -sf ~/dotfiles/.config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
 ln -sf ~/dotfiles/.config/claude/CLAUDE.md ~/.claude/CLAUDE.md
 ln -sf ~/dotfiles/.config/claude/settings.json ~/.claude/settings.json
 ln -sf ~/dotfiles/.config/claude/statusline.js ~/.claude/statusline.js
+
+# Codex CLI
+ln -sf ~/dotfiles/.codex/config.toml ~/.codex/config.toml
