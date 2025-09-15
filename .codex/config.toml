@@ -1,8 +1,7 @@
-model_reasoning_effort = "high"
 hide_agent_reasoning = true
 network_access = true
 
-notify = ["bash", "-lc", "afplay /System/Library/Sounds/Ping.aiff"]
+notify = ["bash", "-lc", "say '終わったよ'"]
 
 [tools]
 web_search = true
