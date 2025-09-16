@@ -36,10 +36,10 @@ ln -sf ~/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty
 # WezTerm
 ln -sf ~/dotfiles/.config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
 
-# Claude Code (他にも色々作られるので、個別にリンクを貼っておかないとダメ)
+# Claude Code (他にも色々作られるので、個別にリンクを張っておかないとダメ)
 ln -sf ~/dotfiles/.config/claude/CLAUDE.md ~/.claude/CLAUDE.md
 ln -sf ~/dotfiles/.config/claude/settings.json ~/.claude/settings.json
 ln -sf ~/dotfiles/.config/claude/statusline.js ~/.claude/statusline.js
 
-# Codex CLI
+# Codex CLI (リンクを張っても、codex によって実ファイルで上書きされる)
 ln -sf ~/dotfiles/.codex/config.toml ~/.codex/config.toml
