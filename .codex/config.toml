@@ -1,10 +1,11 @@
+model_reasoning_effort = "high"
 hide_agent_reasoning = true
 network_access = true
 
-notify = ["bash", "-lc", "say '終わったよ'"]
+[features]
+web_search_request = true
 
-[tools]
-web_search = true
+notify = ["bash", "-lc", "say '終わったよ'"]
 
 [mcp_servers.context7]
 command = "npx"
