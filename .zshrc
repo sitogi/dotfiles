@@ -133,3 +133,5 @@ case ":$PATH:" in
 esac
 # Claude Code
 export PATH="$HOME/.local/bin:$PATH"
+# Added by Antigravity
+export PATH="/Users/masayuki/.antigravity/antigravity/bin:$PATH"
