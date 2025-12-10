@@ -460,7 +460,6 @@ require("lazy").setup({
         on_attach = function(client, bufnr)
           -- キーマッピング
           local opts = { buffer = bufnr, noremap = true, silent = true }
-          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
           vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
           vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, opts)
@@ -617,6 +616,10 @@ require("lazy").setup({
       vim.keymap.set('n', '<leader>ts', builtin.lsp_document_symbols, { desc = "To Symbols (document)" })
       vim.keymap.set('n', '<leader>tw', builtin.lsp_workspace_symbols, { desc = "To Workspace symbols" })
       vim.keymap.set('n', '<leader>te', builtin.diagnostics, { desc = "To Errors (diagnostics)" })
+
+      -- グローバルで定義/参照を Telescope に統一
+      vim.keymap.set('n', 'gd', builtin.lsp_definitions, { desc = "Definitions (Telescope)" })
+      vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = "References (Telescope)" })
 
       -- その他の便利機能
       vim.keymap.set('n', '<leader>m', builtin.marks, { desc = "Marks" })
