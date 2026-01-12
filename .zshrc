@@ -135,3 +135,5 @@ esac
 export PATH="$HOME/.local/bin:$PATH"
 # Added by Antigravity
 export PATH="/Users/masayuki/.antigravity/antigravity/bin:$PATH"
+# Codex editor
+export EDITOR=vim
