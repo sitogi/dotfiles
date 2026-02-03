@@ -1,10 +1,8 @@
 model_reasoning_effort = "high"
 hide_agent_reasoning = true
 network_access = true
+web_search = 'live'
 notify = ["bash", "-lc", "say '終わったよ'"]
-
-[features]
-web_search_request = true
 
 [mcp_servers.context7]
 command = "npx"
