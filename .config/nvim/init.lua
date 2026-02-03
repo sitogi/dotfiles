@@ -588,6 +588,15 @@ require("lazy").setup({
           },
         },
         pickers = {
+          lsp_definitions = {
+            file_ignore_patterns = {},
+          },
+          lsp_references = {
+            file_ignore_patterns = {},
+          },
+          lsp_type_definitions = {
+            file_ignore_patterns = {},
+          },
           find_files = {
             hidden = true,
           },
