@@ -143,3 +143,6 @@ export EDITOR=vim
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bin
+export PATH="$HOME/bin:$PATH"
