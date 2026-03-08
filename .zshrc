@@ -137,3 +137,9 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="/Users/masayuki/.antigravity/antigravity/bin:$PATH"
 # Codex editor
 export EDITOR=vim
+# bun completions
+[ -s "/Users/masayuki/.bun/_bun" ] && source "/Users/masayuki/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
