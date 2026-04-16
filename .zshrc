@@ -146,3 +146,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # bin
 export PATH="$HOME/bin:$PATH"
+[ -f "/Users/masayuki/.ghcup/env" ] && . "/Users/masayuki/.ghcup/env" # ghcup-env
