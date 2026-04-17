@@ -43,3 +43,16 @@ ln -sf ~/dotfiles/.config/claude/statusline.js ~/.claude/statusline.js
 
 # Codex CLI (リンクを張っても、codex によって実ファイルで上書きされる)
 ln -sf ~/dotfiles/.codex/config.toml ~/.codex/config.toml
+
+# Codex skills (system skill 以外の user skill を同期する)
+mkdir -p ~/.codex/skills
+rm -rf ~/.codex/skills/playwright-interactive
+ln -sfn ~/dotfiles/.codex/skills/playwright-interactive ~/.codex/skills/playwright-interactive
+rm -rf ~/.codex/skills/sqex-rpg-story-subtitle
+ln -sfn ~/dotfiles/.codex/skills/sqex-rpg-story-subtitle ~/.codex/skills/sqex-rpg-story-subtitle
+rm -rf ~/.codex/skills/vidro-cli
+ln -sfn ~/dotfiles/.codex/skills/vidro-cli ~/.codex/skills/vidro-cli
+rm -rf ~/.codex/skills/vidro-mcp-session-sync
+ln -sfn ~/dotfiles/.codex/skills/vidro-mcp-session-sync ~/.codex/skills/vidro-mcp-session-sync
+rm -rf ~/.codex/skills/worktree-pnpm-lint-setup
+ln -sfn ~/dotfiles/.codex/skills/worktree-pnpm-lint-setup ~/.codex/skills/worktree-pnpm-lint-setup

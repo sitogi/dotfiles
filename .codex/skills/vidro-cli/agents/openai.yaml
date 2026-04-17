@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vidro CLI"
+  short_description: "Use the Vidro CLI safely for card workflows"
+  default_prompt: "Use $vidro-cli to search, read, create, and update Vidro notes through the installed CLI."

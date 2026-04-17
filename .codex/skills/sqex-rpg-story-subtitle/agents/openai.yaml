@@ -1,0 +1,4 @@
+interface:
+  display_name: "SQEX RPG 風サブタイトル"
+  short_description: "任意の事柄を スクエニ RPG の進行タイトル風の詩的な一文に整える"
+  default_prompt: "次の題材を 章タイトル風の 1 行に要約してください"
