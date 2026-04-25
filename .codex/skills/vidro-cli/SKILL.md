@@ -12,11 +12,16 @@ Prefer this skill for direct note operations and lightweight verification.
 
 ## Quick Checks
 
-Run these checks before doing real work:
+Run these checks the first time you use `vidro` in a conversation, or when a `vidro` command fails unexpectedly:
+
+```bash
+vidro whoami
+```
+
+Use `which vidro` only when the command is missing or the shell cannot find it:
 
 ```bash
 which vidro
-vidro whoami
 ```
 
 If authentication is missing or expired, run:
@@ -102,6 +107,94 @@ vidro cards create --content "$content"
 ```
 
 Use the same pattern for `vidro cards update`.
+
+## Vidro Markdown Compatibility
+
+When creating or updating card content, prefer Markdown that is known to render in Vidro's card viewer.
+
+### Standard Markdown
+
+Vidro renders Markdown through `react-markdown` with GFM and soft line breaks enabled. These forms are safe to use:
+
+- Headings, paragraphs, blockquotes, horizontal rules.
+- Ordered and unordered lists.
+- Task lists such as `- [ ] todo` and `- [x] done`.
+- Tables, strikethrough, autolinks, and footnotes from GFM.
+- Inline code and fenced code blocks.
+- Standard Markdown links and images.
+
+Do not rely on raw HTML, MDX, math blocks, or frontmatter unless the repository implementation has been checked for that feature in the current task.
+
+### Code blocks
+
+Use fenced code blocks for code and diagrams.
+
+Known highlighted languages include:
+
+- `typescript`, `ts`, `tsx`
+- `javascript`, `js`, `jsx`
+- `json`, `bash`, `shell`
+- `markdown`, `md`
+- `yaml`, `yml`
+- `sql`, `html`, `css`
+
+Use ```mermaid fences for Mermaid diagrams. Vidro renders them through the dedicated Mermaid viewer.
+
+````markdown
+```mermaid
+flowchart TD
+  A[Start] --> B[Done]
+```
+````
+
+Use ```schedule fences for Vidro schedule panels.
+
+````markdown
+```schedule
+range: 09:00-18:00
+height: 720px
+```
+````
+
+Schedule metadata supports these keys:
+
+- Range: `range`, `visible-range`, `visiblerange`, `display-range`, `displayrange`.
+- Start: `start`, `from`.
+- End: `end`, `to`.
+- Height: `height`, `min-height`, `minheight`.
+
+Times use `HH:mm`. End time may be `24:00`. Height must be between `120` and `4000`, with optional `px`.
+
+### Vidro-specific links
+
+Vidro auto-linkifies plain text custom protocol URLs for:
+
+- `vidro://...`
+- `raycast://...`
+- `kindle://...`
+
+These protocols are also allowed in normal Markdown links.
+
+Useful Vidro link shapes:
+
+```markdown
+[Card](vidro://boards/<board-id>?card=<card-id>)
+[Inbox card](vidro://inbox?card=<card-id>)
+[Attachment](vidro://uploads/<upload-id>)
+![Image](vidro://uploads/<upload-id>)
+```
+
+`vidro://uploads/<upload-id>` is resolved as a file download when used as a link, and as an uploaded image when used as an image source.
+
+### Link previews
+
+A level-1 heading whose only content is an HTTP(S) Markdown link is rendered as a rich link preview.
+
+```markdown
+# [Example](https://example.com)
+```
+
+Twitter/X status URLs in that same shape render as embedded tweets when supported by the viewer.
 
 ## Guardrails
 
