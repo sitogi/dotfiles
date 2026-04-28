@@ -90,6 +90,20 @@ vidro search cards --query "..." [--board-id <board-id>] [--limit 20]
 
 Treat command output as JSON and read IDs from the response instead of reconstructing them.
 
+## Reporting Links
+
+When command output includes `focusUrl`, `boardUrl`, or `deepLinkUrl`, return those URLs as clickable Markdown links in the final answer instead of plain text or inline code, unless the user explicitly asks for raw JSON.
+
+Examples:
+
+```markdown
+- Open card: [Open in browser](https://vidro.app/cards/<card-id>)
+- Open card in Electron: [Open in Vidro](vidro://cards/<card-id>)
+- Open board: [Open board](https://vidro.app/boards/<board-id>)
+```
+
+Keep `card.id` or `board.id` in plain text when traceability matters, but do not wrap user-facing links in backticks.
+
 ## Multiline Content
 
 When a card body is longer than a short sentence, use a heredoc or shell variable instead of fragile inline quoting.
