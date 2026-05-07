@@ -1,7 +1,11 @@
 model_reasoning_effort = "high"
 hide_agent_reasoning = true
 network_access = true
+service_tier = "fast"
 web_search = 'live'
+
+[features]
+fast_mode = true
 
 [mcp_servers.context7]
 command = "npx"
