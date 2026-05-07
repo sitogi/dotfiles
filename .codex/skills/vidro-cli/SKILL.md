@@ -92,17 +92,19 @@ Treat command output as JSON and read IDs from the response instead of reconstru
 
 ## Reporting Links
 
-When command output includes `focusUrl`, `boardUrl`, or `deepLinkUrl`, return those URLs as clickable Markdown links in the final answer instead of plain text or inline code, unless the user explicitly asks for raw JSON.
+When command output includes `focusUrl` or `boardUrl`, return those URLs as clickable Markdown links in the final answer, unless the user explicitly asks for raw JSON.
+
+When command output includes `deepLinkUrl`, show it as inline code instead of a Markdown link. Some clients strip or disable custom protocol links such as `vidro://...`, so inline code is more reliable and easier to copy.
 
 Examples:
 
 ```markdown
 - Open card: [Open in browser](https://vidro.app/cards/<card-id>)
-- Open card in Electron: [Open in Vidro](vidro://cards/<card-id>)
+- Open card in Electron: `vidro://cards/<card-id>`
 - Open board: [Open board](https://vidro.app/boards/<board-id>)
 ```
 
-Keep `card.id` or `board.id` in plain text when traceability matters, but do not wrap user-facing links in backticks.
+Keep `card.id` or `board.id` in plain text when traceability matters, but do not wrap user-facing HTTP(S) links in backticks.
 
 ## Multiline Content
 
