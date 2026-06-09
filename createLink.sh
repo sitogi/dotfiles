@@ -36,6 +36,10 @@ ln -sf ~/dotfiles/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty
 # WezTerm
 ln -sf ~/dotfiles/.config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
 
+# LazyGit
+mkdir -p ~/Library/Application\ Support/lazygit
+ln -sf ~/dotfiles/.config/lazygit/config.yml ~/Library/Application\ Support/lazygit/config.yml
+
 # Claude Code (他にも色々作られるので、個別にリンクを張っておかないとダメ)
 ln -sf ~/dotfiles/.config/claude/CLAUDE.md ~/.claude/CLAUDE.md
 ln -sf ~/dotfiles/.config/claude/settings.json ~/.claude/settings.json
