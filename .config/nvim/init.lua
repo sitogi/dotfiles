@@ -412,17 +412,6 @@ require("lazy").setup({
     end,
   },
 
-  -- テンプレート
-  {
-    "mattn/sonictemplate-vim",
-    config = function()
-      vim.g.sonictemplate_vim_template_dir = { '~/.vim/templates' }
-    end,
-  },
-
-  -- ヘルプ日本語化
-  { "vim-jp/vimdoc-ja" },
-
   -- GitHub Copilot
   { "github/copilot.vim" },
 
@@ -450,12 +439,10 @@ require("lazy").setup({
         automatic_installation = true,
       })
 
-      -- LSP の設定
-      local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       -- TypeScript/JavaScript の設定
-      lspconfig.ts_ls.setup({
+      vim.lsp.config("ts_ls", {
         capabilities = capabilities,
         on_attach = function(client, bufnr)
           -- キーマッピング
@@ -472,6 +459,7 @@ require("lazy").setup({
           vim.keymap.set('n', '<leader>E', vim.diagnostic.open_float, opts)
         end,
       })
+      vim.lsp.enable("ts_ls")
 
       -- 診断表示の設定 (記号も含めて一括設定)
       vim.diagnostic.config({
@@ -635,17 +623,6 @@ require("lazy").setup({
       vim.keymap.set('n', '<leader>k', builtin.keymaps, { desc = "Keymaps" })
       vim.keymap.set('n', '<leader>:', builtin.commands, { desc = "Commands" })
     end,
-  },
-
-  -- Claude Code AI アシスタント統合
-  {
-    "coder/claudecode.nvim",
-    dependencies = { "folke/snacks.nvim" },
-    config = true,
-    keys = {
-      { "<leader>cc", "<cmd>ClaudeCode<cr>", desc = "Claude Code" },
-      { "<leader>cs", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Claude Send" }
-    }
   },
 
 })
