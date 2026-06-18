@@ -1,0 +1,7 @@
+interface:
+  display_name: "客観回答"
+  short_description: "忖度なしで客観的事実に基づき率直に回答するためのスキル"
+  default_prompt: "$objective-answer で, 忖度せず事実ベースで率直に答えてください."
+
+policy:
+  allow_implicit_invocation: false
