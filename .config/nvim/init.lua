@@ -69,22 +69,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
--- 非アクティブ時の背景色変更
-vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained" }, {
-  pattern = "*",
-  callback = function()
-    vim.cmd("highlight Normal guibg=default")
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "WinLeave", "FocusLost" }, {
-  pattern = "*",
-  callback = function()
-    vim.cmd("highlight Normal guibg=#27292d")
-    vim.cmd("highlight NormalNC guibg=#27292d")
-  end,
-})
-
 -- lazy.nvim のセットアップ
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -109,7 +93,7 @@ require("lazy").setup({
     config = function()
       require("tokyonight").setup({
         style = "night",  -- "storm", "moon", "night", "day" から選択
-        transparent = false,
+        transparent = true,
         terminal_colors = true,
         styles = {
           comments = { italic = true },
