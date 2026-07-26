@@ -16,7 +16,7 @@ zplug "mafredri/zsh-async"
 zplug "sindresorhus/pure"
 
 # 構文のハイライト(https://github.com/zsh-users/zsh-syntax-highlighting)
-zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # コマンド入力途中で上下キー押したときの過去履歴がいい感じに出るようになる
 zplug "zsh-users/zsh-history-substring-search"
