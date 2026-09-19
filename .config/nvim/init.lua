@@ -417,6 +417,33 @@ require("lazy").setup({
     },
   },
 
+  -- 左右の差分を表示し, 作業中のファイルをその場で編集する
+  {
+    "esmuellert/codediff.nvim",
+    cmd = "CodeDiff",
+    keys = {
+      { "<leader>dd", "<cmd>CodeDiff<CR>", desc = "変更ファイルの差分一覧" },
+      { "<leader>df", "<cmd>CodeDiff file HEAD<CR>", desc = "現在のファイルと HEAD の差分" },
+    },
+    opts = {
+      diff = {
+        layout = "side-by-side",
+      },
+      explorer = {
+        initial_focus = "modified",
+        focus_on_select = true,
+      },
+      keymaps = {
+        view = {
+          -- 既存のバッファ選択, 履歴, Vim の t 操作と競合させない
+          toggle_explorer = "<leader>db",
+          focus_explorer = "<leader>de",
+          toggle_layout = "<leader>dt",
+        },
+      },
+    },
+  },
+
   -- LSP 関連
   {
     "neovim/nvim-lspconfig",
