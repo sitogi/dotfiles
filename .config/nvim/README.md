@@ -27,6 +27,8 @@ macOS の `tree-sitter` CLI は `brew install tree-sitter-cli` で導入する.
 | `<leader>g` | ファイル内容を検索 |
 | `<leader>e` | 最近開いたファイル |
 | `<leader>lg`, `:LazyGit` | LazyGit を開く |
+| `<leader>dd`, `:CodeDiff` | 変更ファイル一覧と左右の差分 |
+| `<leader>de` | CodeDiff のファイル一覧にフォーカスを戻す |
 | `gd`, `<leader>td` | 定義へ移動 |
 | `gr`, `<leader>tr` | 参照を検索 |
 | `<leader>ts`, `<leader>tw` | ファイル内・ワークスペースのシンボル |
@@ -45,6 +47,8 @@ macOS の `tree-sitter` CLI は `brew install tree-sitter-cli` で導入する.
 ディレクトリ作成は `A`, ファイル作成は `a` を使う. ファイル移動は `m`, または `x` と `p` を使う. コピーは `y` と `p`, または `c` を使う.
 
 Git の変更一覧は `ga` でステージ, `gu` で解除, `gr` で変更を戻す. コミットや push は `<leader>lg` の LazyGit からも操作できる.
+
+CodeDiff はファイル一覧にフォーカスして開く. 一覧で `j` / `k` または上下キーを押すと, 一覧にフォーカスを残したまま差分を更新する. ファイル上で `Enter` を押すと右側のエディタへ移る. `]f` / `[f` でも次・前のファイルへ切り替えられる.
 
 タグ補完は HTML, JSX / TSX, XML, PHP, Blade に対応し, 対になるタグの名前変更も行う.
 

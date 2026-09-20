@@ -433,8 +433,9 @@ require("lazy").setup({
         layout = "side-by-side",
       },
       explorer = {
-        initial_focus = "modified",
-        focus_on_select = true,
+        initial_focus = "explorer",
+        auto_open_on_cursor = true, -- 上下移動で差分を更新する
+        focus_on_select = true, -- Enter で右側のエディタへ移る
       },
       keymaps = {
         view = {
