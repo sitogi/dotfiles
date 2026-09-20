@@ -7,7 +7,7 @@ vim.o.swapfile = false
 vim.o.autoread = true
 vim.o.hidden = true
 vim.o.showcmd = true
-vim.o.endofline = false
+vim.o.fixendofline = true
 
 -- スペルチェック
 vim.o.spell = true
@@ -54,24 +54,18 @@ vim.keymap.set('n', 's', '<Nop>', { noremap = true })
 vim.keymap.set('n', 'O', ':<C-u>call append(expand("."), "")<Cr>j', { noremap = true })
 
 
--- 保存時の自動整形
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
+-- 整形はファイルごとの EditorConfig と <leader>F の LSP 整形に従う
+-- ヤンクした範囲を標準機能で強調表示する
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
   callback = function()
-    local cursor = vim.fn.getpos(".")
-    -- 空白のみの行の空白を削除
-    vim.cmd([[%s/^\s\+$//ge]])
-    -- 行末の空白を削除
-    vim.cmd([[%s/\s\+$//ge]])
-    -- タブを 4 スペースに変換
-    vim.cmd([[%s/\t/    /ge]])
-    vim.fn.setpos(".", cursor)
+    vim.hl.on_yank({ timeout = 150 })
   end,
 })
 
 -- lazy.nvim のセットアップ
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
@@ -107,7 +101,6 @@ require("lazy").setup({
   -- 基本的な操作拡張
   { "tpope/vim-surround" },
   { "tpope/vim-repeat" },
-  { "tpope/vim-commentary" },
 
   -- 移動系
   {
@@ -268,14 +261,6 @@ require("lazy").setup({
     end,
   },
 
-  -- ハイライト
-  {
-    "machakann/vim-highlightedyank",
-    config = function()
-      vim.g.highlightedyank_highlight_duration = 150
-    end,
-  },
-
   -- バッファライン (タブライン表示)
   {
     "akinsho/bufferline.nvim",
@@ -286,8 +271,8 @@ require("lazy").setup({
         options = {
           mode = "buffers",  -- バッファモード
           numbers = "none",  -- 番号表示なし
-          close_command = "bdelete %d",
-          right_mouse_command = "bdelete %d",
+          close_command = "Bdelete %d",
+          right_mouse_command = "Bdelete %d",
           left_mouse_command = "buffer %d",
           middle_mouse_command = nil,
           indicator = {
@@ -342,8 +327,7 @@ require("lazy").setup({
     end,
   },
 
-  -- バッファ管理 (Neo-tree で :bd で Vim が閉じてしまう問題を回避)
-  -- https://github.com/nvim-neo-tree/neo-tree.nvim/issues/1580 参照
+  -- バッファを削除してもウィンドウ配置を維持する
   {
     "moll/vim-bbye",
     config = function()
@@ -388,12 +372,31 @@ require("lazy").setup({
     end,
   },
 
-  -- タグ自動閉じ
+  -- タグ自動閉じに必要なパーサーとクエリ
   {
-    "alvan/vim-closetag",
+    "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    lazy = false,
+    build = ":TSUpdate",
     config = function()
-      vim.g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.blade.php,*.tsx,*.jsx'
+      local treesitter = require("nvim-treesitter")
+      treesitter.setup({})
+      vim.treesitter.language.register("html", "xhtml")
+      treesitter.install({ "html", "css", "javascript", "typescript", "tsx", "php", "blade", "xml", "regex" })
+      vim.api.nvim_create_autocmd("FileType", {
+        group = vim.api.nvim_create_augroup("treesitter_highlight", { clear = true }),
+        pattern = { "html", "xhtml", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "php", "blade", "xml" },
+        callback = function(event)
+          -- 初回インストール中のバッファでも編集を続けられるようにする
+          pcall(vim.treesitter.start, event.buf)
+        end,
+      })
     end,
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = { aliases = { xhtml = "html" } },
   },
 
   -- GitHub Copilot
@@ -447,9 +450,11 @@ require("lazy").setup({
   -- LSP 関連
   {
     "neovim/nvim-lspconfig",
+    version = "^2.11.0",
     dependencies = {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
+      { "mason-org/mason.nvim", version = "^2.3.1" },
+      "mason-org/mason-lspconfig.nvim",
+      "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
       -- Mason のセットアップ
@@ -465,7 +470,7 @@ require("lazy").setup({
 
       require("mason-lspconfig").setup({
         ensure_installed = { "ts_ls" },
-        automatic_installation = true,
+        automatic_enable = false,
       })
 
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -475,7 +480,7 @@ require("lazy").setup({
         capabilities = capabilities,
         on_attach = function(client, bufnr)
           -- キーマッピング
-          local opts = { buffer = bufnr, noremap = true, silent = true }
+          local opts = { buf = bufnr, noremap = true, silent = true }
           vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
           vim.keymap.set('n', '<leader>R', vim.lsp.buf.rename, opts)
@@ -483,8 +488,12 @@ require("lazy").setup({
           vim.keymap.set('n', '<leader>F', function()
             vim.lsp.buf.format({ async = true })
           end, opts)
-          vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-          vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+          vim.keymap.set('n', '[d', function()
+            vim.diagnostic.jump({ count = -1 })
+          end, opts)
+          vim.keymap.set('n', ']d', function()
+            vim.diagnostic.jump({ count = 1 })
+          end, opts)
           vim.keymap.set('n', '<leader>E', vim.diagnostic.open_float, opts)
         end,
       })
@@ -492,6 +501,11 @@ require("lazy").setup({
 
       -- 診断表示の設定 (記号も含めて一括設定)
       vim.diagnostic.config({
+        jump = {
+          on_jump = function(_, bufnr)
+            vim.diagnostic.open_float({ bufnr = bufnr, scope = "cursor" })
+          end,
+        },
         virtual_text = true,
         signs = {
           text = {
@@ -562,7 +576,6 @@ require("lazy").setup({
       })
     end,
   },
-
   -- Telescope (高機能ファジーファインダー)
   {
     "nvim-telescope/telescope.nvim",
