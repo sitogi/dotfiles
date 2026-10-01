@@ -81,20 +81,15 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   -- カラースキーム
   {
-    "folke/tokyonight.nvim",
+    "sainnhe/gruvbox-material",
     lazy = false,
     priority = 1000,
+    init = function()
+      vim.g.gruvbox_material_background = "medium"
+      vim.g.gruvbox_material_transparent_background = 0
+    end,
     config = function()
-      require("tokyonight").setup({
-        style = "night",  -- "storm", "moon", "night", "day" から選択
-        transparent = true,
-        terminal_colors = true,
-        styles = {
-          comments = { italic = true },
-          keywords = { italic = true },
-        },
-      })
-      vim.cmd("colorscheme tokyonight")
+      vim.cmd("colorscheme gruvbox-material")
     end,
   },
 
