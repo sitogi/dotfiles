@@ -52,6 +52,18 @@ CodeDiff はファイル一覧にフォーカスして開く. 一覧で `j` / `k
 
 タグ補完は HTML, JSX / TSX, XML, PHP, Blade に対応し, 対になるタグの名前変更も行う.
 
+## TypeScript / JavaScript の LSP
+
+ワークスペースルートの `node_modules/typescript/package.json` を読み, サーバーを自動で切り替える.
+
+- TypeScript 7 以上: プロジェクトの `tsc --lsp --stdio` を使う.
+- TypeScript 6 以下: Mason で導入した `ts_ls` を使う.
+- TypeScript 未導入: `ts_ls` と同梱の TypeScript を使う.
+
+同じファイルに両方のサーバーは接続しない. モノレポではルートに導入された TypeScript を共通で使う.
+補完やキーマッピングは共通で, `:checkhealth vim.lsp` で接続中のサーバーを確認できる.
+TypeScript のメジャーバージョンを変更した場合は Neovim を再起動する.
+
 ## 整形と更新
 
 タブと行末空白を保存時に一括置換する処理は削除した. インデントなどはファイルごとの EditorConfig に従い, 必要なときに `<leader>F` で整形する.

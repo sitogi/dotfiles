@@ -480,7 +480,7 @@ require("lazy").setup({
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       -- TypeScript/JavaScript の設定
-      vim.lsp.config("ts_ls", {
+      require("typescript_lsp").setup({
         capabilities = capabilities,
         on_attach = function(client, bufnr)
           -- キーマッピング
@@ -501,7 +501,6 @@ require("lazy").setup({
           vim.keymap.set('n', '<leader>E', vim.diagnostic.open_float, opts)
         end,
       })
-      vim.lsp.enable("ts_ls")
 
       -- 診断表示の設定 (記号も含めて一括設定)
       vim.diagnostic.config({
