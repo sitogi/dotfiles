@@ -265,6 +265,14 @@ require("lazy").setup({
       require("bufferline").setup({
         options = {
           mode = "buffers",  -- バッファモード
+          custom_filter = function(bufnr)
+            -- 起動時の空バッファはタブ一覧に表示しない
+            if vim.api.nvim_buf_get_name(bufnr) ~= "" or vim.bo[bufnr].modified then
+              return true
+            end
+            return vim.api.nvim_buf_line_count(bufnr) > 1
+              or vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1] ~= ""
+          end,
           numbers = "none",  -- 番号表示なし
           close_command = "Bdelete %d",
           right_mouse_command = "Bdelete %d",
@@ -298,7 +306,7 @@ require("lazy").setup({
           },
           color_icons = true,
           show_buffer_icons = true,
-          show_buffer_close_icons = false,
+          show_buffer_close_icons = true,
           show_close_icon = false,
           show_tab_indicators = true,
           persist_buffer_sort = true,
