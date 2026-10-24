@@ -1,2 +1,14 @@
 os:
   editPreset: nvim-remote
+  edit: >-
+    if [ -n "$NVIM" ]; then
+      nvim -l "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/lazygit-editor.lua" {{filename}};
+    else
+      nvim -- {{filename}};
+    fi
+  editAtLine: >-
+    if [ -n "$NVIM" ]; then
+      nvim -l "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/lazygit-editor.lua" {{filename}} {{line}};
+    else
+      nvim +{{line}} -- {{filename}};
+    fi

@@ -421,6 +421,9 @@ require("lazy").setup({
     keys = {
       { "<leader>lg", "<cmd>LazyGit<CR>", desc = "LazyGit" },
     },
+    config = function()
+      require("lazygit_editor").setup()
+    end,
   },
 
   -- 左右の差分を表示し, 作業中のファイルをその場で編集する
